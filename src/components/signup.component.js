@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route,useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import  React,{ useState } from 'react';
-import axios, * as others from 'axios';
+import axios from 'axios';
 import Market from './market';
 function SignUp() {
   const [style, setStyle] = useState("right");
