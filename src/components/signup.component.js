@@ -28,7 +28,7 @@ function SignUp() {
   await delay(2500);
     navigate("/sign-in")
  }
- 
+
   const onInputChange = e => {
     const { name, value } = e.target;
     setInput(prev => ({
@@ -130,11 +130,11 @@ function SignUp() {
         <div className="" id={style2}>
 
           <div className="carbg">
-              <img id="pic1" src="/Blue.png"/>
+              <img id="pic1" src="/Blue.png" alt='icon'/>
           </div>
 
           <div className="car">
-               <img  className="pic2" src="/carblue.png"/>
+               <img  className="pic2" src="/carblue.png" alt='car'/>
           </div>
             
         </div>

@@ -15,11 +15,11 @@ function Login(){
         <div className="" id={style}>
 
           <div className="carbg">
-              <img id="pic1" src="/Blue.png"/>
+              <img id="pic1" src="/Blue.png" alt='icon'/>
           </div>
 
           <div className="car">
-               <img  className="pic2h" src="/carblue.png" />
+               <img  className="pic2h" src="/carblue.png" alt='car'/>
           </div>
             
         </div>
