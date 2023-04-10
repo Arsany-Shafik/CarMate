@@ -1,7 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom'
 import  React,{ useState } from 'react';
 import axios from 'axios';
-import Market from './market';
 function SignUp() {
   const [style, setStyle] = useState("right");
   const [style2, setStyle2] = useState("left");
