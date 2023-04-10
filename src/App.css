@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+@media only screen and (min-width:1000px) {
+  body{
+    background-color: red;
+  }
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  font-weight: 400;
+  font-family: 'Fira Sans', sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+h1,h2,h3,h4,h5,h6,label,span {
+  font-weight: 500;
+  color: #FFFFFF;
+  font-family: 'Fira Sans', sans-serif;
+}
+h3{
+  text-align: center;
+}
+.but1{
+color: #b9afaf;
+width: 63%;
+margin-top: -6.5%;
+margin-left: 42%;
+font-size: 125%;
+}
+.btnlog{
+  margin-top: 1%;
+  margin-left: 12.5%;
+  width: 25%;
+  height: 2.1em;
+  background: #007AFF;
+  border-radius: 50px;
+  border: 0;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+body, html, .App, #root {
+  width: 100%;
+  height: 100%;
+}
+
+/* input[type=checkbpx]{
+  accent-color: #007aff;
+  cursor: pointer;
+  border:2px solid #007AFF;
+} */
+
+.rmei {
+  position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;  
+    
+       
+   }
+   .rme {
+    position: relative;
+    /* display: block; */
+    padding-left: 30px;
+    cursor: pointer;
+  }
+  .rme:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: 0;
+    display: block;
+    height: 18px;
+    width: 18px;
+    border:2px solid #007AFF;
+    border-radius: 3px;
+  }
+  .rme:after {
+  
+    content: '';
+    position: absolute;
+    left: 6.3px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+  
+  }
+  .rmei:checked + .rme:after {
+    opacity: 100;
+  
+  }
+
+.form-control{
+  box-sizing: border-box;
+  width: 75%;
+  background:#555454;
+border: 1px solid #FFFFFF;
+border-radius: 85px;
+}
+.lab{
+margin-left: 85px;
+}
+
+.err{
+margin-left: 85px;
+color: crimson;
+}
+
+
+.custom-control-label {
+  font-weight: 400;
+}
+.forgdiv {
+  font-size: 13px;
+  margin: 0;
+  float: right;
+}
+
+.App{
+  display: flex;
+  justify-content: space-around;
+  background-size:cover;
+  height: 500px; ;
+
+
+}
+.imgbk{
+  background-image: url('/public/Backgroundcars.jpg');
+  height: 100%;
+  width: 100%;
+  background-size:cover;
+  position:absolute;
+    filter:brightness(.19);
+
+}
+#pic1 {
+  height: 100vh;
+  margin-left: 150px; 
+  
+}
+
+.pic2 {
+
+  margin-left: 100px;
+  height:52vh;
+  
+}
+.pic2h {
+
+  margin-left: 100px;
+  height:52vh;
+  transform: scaleX(-1);
+}
+.home{
+  margin-top: 30%;
+}
+.home2{
+  margin-top: 3%;
+}
+
+#left {
+  width: 40%;
+  position: relative;
+  filter:brightness(1);
+}
+#left2 {
+  width: 40%;
+  position: relative;
+  filter:brightness(1);
+  animation-name: example;
+  animation-duration: 10s;
+}
+@keyframes example {
+  0%   { left:0px; top:0px;}
+  25%  { left:50%; top:0px;}
+}
+
+#right{
+  position: relative;
+  width: 40%;
+  filter:brightness(.7);
+}
+#right2{
+  position: relative;
+  width: 40%;
+  filter:brightness(.7);
+  animation-name: example2;
+  animation-duration: 10s;
+  /* animation-delay: 2s; */
+}
+  @keyframes example2  {
+  0%   { right:0px; top:0px;}
+  25%  { right:50%; top:0px;}
+}
+
+.carbg{
+  opacity: .89;
+  filter:brightness(.7);
+}
+
+.car{
+  position: absolute;
+top: 300px;
+}
+.forget,.aa{
+text-decoration:underline;
+text-decoration-skip-ink:none;
+margin-right: 90px;
+}
+
+#button:active{
+  transform: translateY(4px);
+}
+
+#button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+}
+
+#button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.form-control,select,textarea{
+  color: #4f95df;
+}
+.formlogin{
+position: absolute;
+top: 12vw;
+right: 52vw;
+width: 40vw;
+}
+#imgs{
+  width: 0%;
+  position: relative;
+  filter:brightness(1);
+  margin-left: 50vw;
+}
+#imgs2{
+  width: 0%;
+  position: relative;
+  filter:brightness(1);
+  margin-left: 50vw;
+  animation-name: example2;
+  animation-duration: 10s;
+}
+@keyframes example2 {
+  0%   { right:0px; top:0px;}
+  25%  { right:50%; top:0px;}
+
+}
