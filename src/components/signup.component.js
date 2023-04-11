@@ -80,6 +80,7 @@ function SignUp() {
       return stateObj;
     });
   }
+  const [mesg, setmesg] = useState('');
 
   const handleSubmit =  async e => {
     
@@ -103,7 +104,7 @@ function SignUp() {
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
         console.log('Error: ', error.response.data.message);
-
+        setmesg(error.response.data.message);
       } else if (error.request) {
         // The request was made but no response was received
         // `error.request` is an instance of XMLHttpRequest in the browser 
@@ -142,7 +143,7 @@ function SignUp() {
       
         <div className=" row d-flex justify-content-center align-items-center" id={style}>
       <div className='home2'>
-      <form  onSubmit={handleSubmit}>
+      <form className='upform'  onSubmit={handleSubmit}>
         <h3 className='text-primary'>Create Account</h3>
         <div className="mb-3">
           <label className='lab'>First Name</label>
@@ -239,6 +240,7 @@ function SignUp() {
           <p className="forgot-password  but1">
           Already registered <Link onClick={Anima} className='aa'>Log in</Link>
         </p>
+        <h6 className='mesg'>{mesg}</h6>
         </div>
 
       </form>
