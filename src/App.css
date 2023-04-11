@@ -27,7 +27,7 @@ width: 61%;
 margin-top: -6.5%;
 margin-left: 42%;
 font-size: 125%;
-margin-bottom: 15px;
+margin-bottom: 2.4vh;
 }
 .btnlog{
   margin-top: 1%;
@@ -46,12 +46,6 @@ body, html, .App, #root {
   height: 100%;
 }
 
-/* input[type=checkbpx]{
-  accent-color: #007aff;
-  cursor: pointer;
-  border:2px solid #007AFF;
-} */
-
 .rmei {
   position: absolute;
     opacity: 0;
@@ -63,18 +57,18 @@ body, html, .App, #root {
    .rme {
     position: relative;
     /* display: block; */
-    padding-left: 30px;
+    padding-left: 2.1961932650073206vw;
     cursor: pointer;
   }
   .rme:before {
     content: '';
     position: absolute;
     top: 50%;
-    margin-top: -10px;
+    margin-top: -1.6vh;
     left: 0;
     display: block;
-    height: 18px;
-    width: 18px;
+    height: 2.88vh;
+    width: 1.3177159590043923vw;
     border:2px solid #007AFF;
     border-radius: 3px;
   }
@@ -82,10 +76,10 @@ body, html, .App, #root {
   
     content: '';
     position: absolute;
-    left: 6.3px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    left: 0.4612005856515373vw;
+    top: 0.8vh;
+    width: 0.36603221083455345vw;
+    height: 1.6vh;
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
@@ -105,11 +99,11 @@ border: 1px solid #FFFFFF;
 border-radius: 85px;
 }
 .lab{
-margin-left: 85px;
+margin-left:  6.222547584187408vw;
 }
 
 .err{
-margin-left: 85px;
+margin-left:  6.222547584187408vw;
 color: crimson;
 }
 
@@ -127,7 +121,7 @@ color: crimson;
   display: flex;
   justify-content: space-around;
   background-size:cover;
-  height: 500px; ;
+  height: 80vh ;
 
 
 }
@@ -142,19 +136,19 @@ color: crimson;
 }
 #pic1 {
   height: 100vh;
-  margin-left: 150px; 
+  margin-left: 10.980966325036603vw; 
   
 }
 
 .pic2 {
 
-  margin-left: 100px;
+  margin-left: 7.320644216691069vw;
   height:52vh;
   
 }
 .pic2h {
 
-  margin-left: 100px;
+  margin-left: 7.320644216691069vw;
   height:52vh;
   transform: scaleX(-1);
 }
@@ -207,16 +201,16 @@ color: crimson;
 
 .car{
   position: absolute;
-top: 300px;
+top: 48vh;
 }
 .forget,.aa{
 text-decoration:underline;
 text-decoration-skip-ink:none;
-margin-right: 90px;
+margin-right: 6.588579795021962vw;
 }
 
 #button:active{
-  transform: translateY(4px);
+  transform: translateY(0.64vh);
 }
 
 #button span {
@@ -231,12 +225,12 @@ margin-right: 90px;
   position: absolute;
   opacity: 0;
   top: 0;
-  right: -20px;
+  right: -1.4641288433382138vw;
   transition: 0.5s;
 }
 
 #button:hover span {
-  padding-right: 25px;
+  padding-right: 1.8301610541727673vw;
 }
 
 #button:hover span:after {
