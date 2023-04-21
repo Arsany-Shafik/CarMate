@@ -156,9 +156,8 @@ const validateInput = e => {
             </label>
 
            <div className='forgdiv'>
-              <p className="forget">
-                <a className='' href="/forgot">Forget your password?</a>
-              </p>
+           <p ><Link to="/forgot" className="forget">Forget your password?</Link>
+           </p>
            </div>
           </div>
         </div>
