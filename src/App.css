@@ -46,35 +46,28 @@ body, html, .App, #root {
   height: 100%;
 }
 
-/* input[type=checkbpx]{
-  accent-color: #007aff;
-  cursor: pointer;
-  border:2px solid #007AFF;
-} */
-
 .rmei {
   position: absolute;
     opacity: 0;
     height: 0;
     width: 0;  
-    
-       
    }
+   
    .rme {
     position: relative;
     /* display: block; */
-    padding-left: 30px;
+    padding-left: 2.1961932650073206vw;
     cursor: pointer;
   }
   .rme:before {
     content: '';
     position: absolute;
     top: 50%;
-    margin-top: -10px;
+    margin-top: -1.6vh;
     left: 0;
     display: block;
-    height: 18px;
-    width: 18px;
+    height:  2.88vh;
+    width: 1.3177159590043923vw;
     border:2px solid #007AFF;
     border-radius: 3px;
   }
@@ -82,12 +75,12 @@ body, html, .App, #root {
   
     content: '';
     position: absolute;
-    left: 6.3px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    left: 0.4612005856515373vw;
+    top: 0.8vh;
+    width: 0.36603221083455345vw;
+    height: 1.6vh;
     border: solid white;
-    border-width: 0 3px 3px 0;
+    border-width: 0 0.48vh 0.21961932650073207vw 0;
     transform: rotate(45deg);
     opacity: 0;
   
@@ -102,14 +95,14 @@ body, html, .App, #root {
   width: 75%;
   background:#555454;
 border: 1px solid #FFFFFF;
-border-radius: 85px;
+border-radius: 6.222547584187408vh;
 }
 .lab{
-margin-left: 85px;
+margin-left: 6.222547584187408vw;
 }
 
 .err{
-margin-left: 85px;
+margin-left: 6.222547584187408vw;
 color: crimson;
 }
 
@@ -127,7 +120,7 @@ color: crimson;
   display: flex;
   justify-content: space-around;
   background-size:cover;
-  height: 500px; ;
+  height: 80vh ;
 
 
 }
@@ -139,19 +132,19 @@ color: crimson;
 }
 #pic1 {
   height: 51.1vw;
-  margin-left: 150px; 
+  margin-left: 10.980966325036603vw; 
   
 }
 
 .pic2 {
 
-  margin-left: 100px;
-  height:330px;
+  margin-left: 7.320644216691069vw;
+  height:52.8vh;
   
 }
 .pic2h {
-  margin-left: 100px;
-  height:330px;
+  margin-left: 7.320644216691069vw;
+  height:52.8vh;
   transform: scaleX(-1);
 }
 .home{
@@ -201,16 +194,16 @@ color: crimson;
 
 .car{
   position: absolute;
-top: 300px;
+top: 48vh;
 }
 .forget,.aa{
 text-decoration:underline;
 text-decoration-skip-ink:none;
-margin-right: 90px;
+margin-right:  6.588579795021962vw;
 }
 
 #button:active{
-  transform: translateY(4px);
+  transform: translateY( 0.64vh);
 }
 
 #button span {
@@ -225,12 +218,12 @@ margin-right: 90px;
   position: absolute;
   opacity: 0;
   top: 0;
-  right: -20px;
+  right: -1.4641288433382138vw;
   transition: 0.5s;
 }
 
 #button:hover span {
-  padding-right: 25px;
+  padding-right: 1.8301610541727673vw;
 }
 
 #button:hover span:after {
