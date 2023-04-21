@@ -26,7 +26,7 @@ function SignUp() {
   setStyle("right2");
     setStyle2("left2");
   await delay(2900);
-    navigate("/sign-in")
+    navigate("/")
  }
 
   const onInputChange = e => {

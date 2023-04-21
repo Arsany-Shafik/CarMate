@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 
 const Forget =() => {
@@ -112,7 +112,7 @@ const Forget =() => {
             <span>Send</span> 
           </button>
           <p className="forgot-password  but1">
-          <br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back to <a href='/sign-in' className='aa'>Log in</a>
+          <br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back to <Link to="/" className="forget">Log in</Link>
         </p>
         </div>
         
