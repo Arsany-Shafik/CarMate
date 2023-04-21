@@ -18,20 +18,20 @@ h1,h2,h3,h4,h5,h6,label,span {
   color: #FFFFFF;
   font-family: 'Fira Sans', sans-serif;
 }
-h3{
+.title{
   text-align: center;
 }
 .but1{
-color: #b9afaf;
-width: 61%;
-margin-top: -6.5%;
-margin-left: 42%;
-font-size: 125%;
-margin-bottom: 2.4vh;
-}
+  color: #b9afaf;
+  width: 61%;
+  margin-top: 0%;
+  margin-left: 30%;
+  font-size: 125%;
+  margin-bottom: 2.4vh;
+  }
 .btnlog{
   margin-top: 1%;
-  margin-left: 12.5%;
+  margin-left: 35%;
   width: 25%;
   height: 2.1em;
   background: #007AFF;
@@ -46,6 +46,12 @@ body, html, .App, #root {
   height: 100%;
 }
 
+/* input[type=checkbpx]{
+  accent-color: #007aff;
+  cursor: pointer;
+  border:2px solid #007AFF;
+} */
+
 .rmei {
   position: absolute;
     opacity: 0;
@@ -57,18 +63,18 @@ body, html, .App, #root {
    .rme {
     position: relative;
     /* display: block; */
-    padding-left: 2.1961932650073206vw;
+    padding-left: 30px;
     cursor: pointer;
   }
   .rme:before {
     content: '';
     position: absolute;
     top: 50%;
-    margin-top: -1.6vh;
+    margin-top: -10px;
     left: 0;
     display: block;
-    height: 2.88vh;
-    width: 1.3177159590043923vw;
+    height: 18px;
+    width: 18px;
     border:2px solid #007AFF;
     border-radius: 3px;
   }
@@ -76,10 +82,10 @@ body, html, .App, #root {
   
     content: '';
     position: absolute;
-    left: 0.4612005856515373vw;
-    top: 0.8vh;
-    width: 0.36603221083455345vw;
-    height: 1.6vh;
+    left: 6.3px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
@@ -99,11 +105,11 @@ border: 1px solid #FFFFFF;
 border-radius: 85px;
 }
 .lab{
-margin-left:  6.222547584187408vw;
+margin-left: 85px;
 }
 
 .err{
-margin-left:  6.222547584187408vw;
+margin-left: 85px;
 color: crimson;
 }
 
@@ -121,35 +127,31 @@ color: crimson;
   display: flex;
   justify-content: space-around;
   background-size:cover;
-  height: 80vh ;
+  height: 500px; ;
 
 
 }
 .imgbk{
-  background-image: url('/public/Backgroundcars.jpg');
-  height: 100%;
-  width: 100%;
-  background-size:cover;
+  max-width: 100%;
+  height: auto;
   position:absolute;
-    filter:brightness(.19);
-
+  filter:brightness(.19);
 }
 #pic1 {
-  height: 100vh;
-  margin-left: 10.980966325036603vw; 
+  height: 51.1vw;
+  margin-left: 150px; 
   
 }
 
 .pic2 {
 
-  margin-left: 7.320644216691069vw;
-  height:52vh;
+  margin-left: 100px;
+  height:330px;
   
 }
 .pic2h {
-
-  margin-left: 7.320644216691069vw;
-  height:52vh;
+  margin-left: 100px;
+  height:330px;
   transform: scaleX(-1);
 }
 .home{
@@ -160,14 +162,12 @@ color: crimson;
 }
 
 #left {
-  width: 40%;
-  position: relative;
   filter:brightness(1);
 }
 #left2 {
   width: 40%;
   position: relative;
-  filter:brightness(1);
+  filter:brightness(.7);
   animation-name: example;
   animation-duration: 10s;
 }
@@ -179,7 +179,7 @@ color: crimson;
 #right{
   position: relative;
   width: 40%;
-  filter:brightness(.7);
+  filter:brightness(1);
 }
 #right2{
   position: relative;
@@ -187,7 +187,7 @@ color: crimson;
   filter:brightness(.7);
   animation-name: example2;
   animation-duration: 10s;
-  /* animation-delay: 2s; */
+  
 }
   @keyframes example2  {
   0%   { right:0px; top:0px;}
@@ -201,16 +201,16 @@ color: crimson;
 
 .car{
   position: absolute;
-top: 48vh;
+top: 300px;
 }
 .forget,.aa{
 text-decoration:underline;
 text-decoration-skip-ink:none;
-margin-right: 6.588579795021962vw;
+margin-right: 90px;
 }
 
 #button:active{
-  transform: translateY(0.64vh);
+  transform: translateY(4px);
 }
 
 #button span {
@@ -225,12 +225,12 @@ margin-right: 6.588579795021962vw;
   position: absolute;
   opacity: 0;
   top: 0;
-  right: -1.4641288433382138vw;
+  right: -20px;
   transition: 0.5s;
 }
 
 #button:hover span {
-  padding-right: 1.8301610541727673vw;
+  padding-right: 25px;
 }
 
 #button:hover span:after {
@@ -241,24 +241,23 @@ margin-right: 6.588579795021962vw;
   color: #4f95df;
 }
 .formlogin{
-position: absolute;
-top: 12vw;
-right: 52vw;
+
 width: 40vw;
 }
 #imgs{
-  width: 0%;
+  width: 40vw;
   position: relative;
   filter:brightness(1);
-  margin-left: 50vw;
+  
 }
 #imgs2{
-  width: 0%;
+  width: 40%;
   position: relative;
   filter:brightness(1);
-  margin-left: 50vw;
   animation-name: example2;
   animation-duration: 10s;
+  transform: scaleX(-1);
+  
 }
 @keyframes example2 {
   0%   { right:0px; top:0px;}
@@ -266,9 +265,11 @@ width: 40vw;
 
 }
 .upform{
-  width: 41vw;
+  width: 40vw;
+
 }
 .mesg{
+  text-align: center;
   margin: 0;
-  color: #4f95df;
+  color: #f10d0d;
 }

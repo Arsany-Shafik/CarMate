@@ -1,5 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom'
 import  React,{ useState } from 'react';
+// import Marquee from "react-fast-marquee";
 import axios from 'axios';
 function SignUp() {
   const [style, setStyle] = useState("right");
@@ -24,7 +25,7 @@ function SignUp() {
  async function Anima (){
   setStyle("right2");
     setStyle2("left2");
-  await delay(2500);
+  await delay(2900);
     navigate("/sign-in")
  }
 
@@ -44,9 +45,14 @@ function SignUp() {
  
       switch (name) {
         
-        case "username":
+        case "usernamef":
           if (!value) {
-            stateObj[name] = "Please enter Username.";
+            stateObj[name] = "Please enter FirstName.";
+          }
+          break;
+        case "usernamel":
+          if (!value) {
+            stateObj[name] = "Please enter LastName.";
           }
           break;
         case "email":
@@ -86,12 +92,12 @@ function SignUp() {
     
     e.preventDefault();
     let userData = {
-      email: input.email,
-      password: input.password,
-      ConfirmPassword:input.confirmPassword,
       FirstName:input.usernamef,
       LastName:input.usernamel,
-      PhoneNumber:input.PhoneNumber
+      PhoneNumber:input.PhoneNumber,
+      email: input.email,
+      password: input.password,
+      ConfirmPassword:input.confirmPassword
     };
       await axios.post("https://car-mate-t012.onrender.com/api/v1/users/signup/", userData).then( (response) => {
       console.log(response.status, response.data.token);
@@ -119,13 +125,12 @@ function SignUp() {
   };
 
 
-// }
-// export default class SignUp extends Component {
-//   render() {
+
     
     return (
+      
       <div className="App" id='parent'>
-      <p className='imgbk'></p>
+      <img src='Backgroundcarsm.jpeg' className='imgbk'></img>
         
         <div className="" id={style2}>
 
@@ -144,13 +149,17 @@ function SignUp() {
         <div className=" row d-flex justify-content-center align-items-center" id={style}>
       <div className='home2'>
       <form className='upform'  onSubmit={handleSubmit}>
-        <h3 className='text-primary'>Create Account</h3>
-        <div className="mb-3">
+      <marquee direction="down" behavior="slide" scrollamount="3">
+      <h3 className='text-primary title'>Create Account</h3>
+       </marquee>
+      
+       <marquee direction="down" behavior="slide" scrollamount="6">
+        <div className="mb-1">
           <label className='lab'>First Name</label>
           <input
             type="text"
-            className="form-control mx-auto"
-            placeholder="Enter your name"
+            className="form-control m-auto"
+            placeholder="Enter your F_name"
             name="usernamef"
             value={input.usernamef}
           onChange={onInputChange}
@@ -159,12 +168,15 @@ function SignUp() {
           />
            {error.usernamef && <span className='err'>{error.usernamef}</span>}
         </div>
-        <div className="mb-3">
+        </marquee>
+
+        <marquee direction="down" behavior="slide" scrollamount="5.5">
+        <div className="mb-1">
           <label className='lab'>Last Name</label>
           <input
             type="text"
-            className="form-control mx-auto"
-            placeholder="Enter your name"
+            className="form-control m-auto"
+            placeholder="Enter your L_name"
             name="usernamel"
             value={input.usernamel}
           onChange={onInputChange}
@@ -173,11 +185,14 @@ function SignUp() {
           />
            {error.usernamel && <span className='err'>{error.usernamel}</span>}
         </div>
-        <div className="mb-3 ">
+        </marquee>
+
+        <marquee direction="down" behavior="slide" scrollamount="5">
+        <div className="mb-1 ">
           <label className='lab'>Email Address</label>
           <input
             type="email"
-            className="form-control mx-auto"
+            className="form-control m-auto"
             placeholder="Enter your email"
             name="email"
             value={input.email}
@@ -185,29 +200,35 @@ function SignUp() {
           onBlur={validateInput}
             required
           />
-                   {error.email && <span className='err'>{error.email}</span>}
+             {error.email && <span className='err'>{error.email}</span>}
         </div>
-        <div className="mb-3 ">
+        </marquee>
+
+        <marquee direction="down" behavior="slide" scrollamount="4.5">
+        <div className="mb-1 ">
           <label className='lab'>Phone Number</label>
           <input
+           id="phone"
            type="tel" 
-           className="form-control mx-auto"
+           className="form-control m-auto"
            placeholder="Enter your number"
            name="PhoneNumber"
            value={input.PhoneNumber}
            onChange={onInputChange}
            onBlur={validateInput}
            required
-
           pattern="[0-9,+]{13}"
           />
         </div>
-        <div className="mb-3 ">
+        
+        </marquee>
+        <marquee direction="down" behavior="slide" scrollamount="4">
+        <div className="mb-1 ">
           <label className='lab'>Password</label>
           <input
             type="password"
             id="password"
-            className="form-control mx-auto"
+            className="form-control m-auto"
             placeholder="Enter password"
             name="password"
             value={input.password}
@@ -217,12 +238,14 @@ function SignUp() {
           />
             {error.password && <span className='err'>{error.password}</span>}
         </div>
-        <div className="mb-3 ">
+        </marquee>
+        <marquee direction="down" behavior="slide" scrollamount="3.5">
+        <div className="mb-1 ">
           <label className='lab'>Confirm Password</label>
           <input
             type="password"
             id="confirmPassword"
-            className="form-control mx-auto"
+            className="form-control m-auto"
             placeholder="Confirm password"
             name="confirmPassword"
             value={input.confirmPassword}
@@ -231,16 +254,21 @@ function SignUp() {
             required
           />
           {error.confirmPassword && <span className='err'>{error.confirmPassword}</span>}
- 
         </div>
+        </marquee>
+        <h6 className='mesg'>{mesg}</h6>
         <div className="but">
+        <marquee direction="up" behavior="slide">
           <button type="submit" className="btnlog" id='button' >
            <span> Sign Up</span>
           </button>
+          </marquee>
+          <marquee direction="left" behavior="slide" scrollamount="35">
           <p className="forgot-password  but1">
           Already registered <Link onClick={Anima} className='aa'>Log in</Link>
         </p>
-        <h6 className='mesg'>{mesg}</h6>
+        </marquee>
+     
         </div>
 
       </form>

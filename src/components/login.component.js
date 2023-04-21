@@ -1,64 +1,149 @@
+import { useNavigate, Link } from 'react-router-dom'
 import  React,  { useState } from 'react';
-// import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+// import marquee from "react-fast-marquee";
 function Login(){
-    const [style, setStyle] = useState("imgs");
-    // const [style2, setStyle2] = useState("right");
+  const [style, setStyle] = useState("left");
+  const [style2, setStyle2] = useState("imgs");
+  const [input,setInput,setError] = useState({
+    email: '',
+    password: '',
+  });
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
+const navigate = useNavigate();
+async function Anima (){
+  setStyle("left2");
+  setStyle2("imgs2");
+  await delay(2100);
+    navigate("/sign-up")
+ }
+///////////////////////////////////
+const onInputChange = e => {
+  const { name, value } = e.target;
+  setInput(prev => ({
+    ...prev,
+    [name]: value
+  }));
+  validateInput(e);
+}
+
+const validateInput = e => {
+  let {value, name} = e.target;
+  setError(prev => {
+    const stateObj = { ...prev, [name]: "" };
+    switch (name) {
+    
+      case "email":
+        if (!value) {
+          stateObj[name] = "Please enter Email.";
+        }
+        break;
+
+      case "password":
+        if (!value) {
+          stateObj[name] = "Please enter Confirm Password.";
+        } else if (input.password && value !== input.password) {
+          stateObj[name] = "Password and Confirm Password does not match.";
+        }
+        break;
+
+      default:
+        break;
+    }
+    return stateObj;
+  });
+}
+///////////////////////////////////////
+     const [mesg, setmesg] = useState('');
+
+  const handleSubmit2 =  async e => {
+    
+    e.preventDefault();
+    let userData = {
+      email: input.email,
+      password: input.password
+    };
+      await axios.post("https://car-mate-t012.onrender.com/api/v1/users/login", userData).then( (response) => {
+      console.log(response.status, response.data.token);
+
+      navigate('/Market');
+    })
+    
+    .catch(function (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log('Error: ', error.response.data.message);
+        setmesg(error.response.data.message);
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser 
+        // and an instance of http.ClientRequest in node.js
+        console.log(error.request);
+        console.log('Error: ', error.message);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error: ', error.message);
+      }
+    });
+  };
 
 
     return (
       
       
       <div className="App" id='parent'>
-      <p className='imgbk'></p>
-        
+      <img src='Backgroundcarsm.jpeg' className='imgbk'></img>
+
+      
         <div className="" id={style}>
-
-          <div className="carbg">
-              <img id="pic1" src="/Blue.png" alt='icon'/>
-          </div>
-
-          <div className="car">
-               <img  className="pic2h" src="/carblue.png" alt='car'/>
-          </div>
-            
-        </div>
-
-      
-      
-        <div className=" row d-flex justify-content-center align-items-center" id="right">
-         
        
         <div className='home'>
 
-       <form  className='formlogin'>
-        <h3 className='text-primary'>Log In</h3>
+       <form  className='formlogin'  onSubmit={handleSubmit2} >
+       <marquee direction="down" behavior="slide" scrollamount="3" >
+         <h3 className='text-primary title'>Log In</h3>
+       </marquee>
+
         <div className='block'>
-        <div className="mb-3">
-          
+
+        <marquee direction="down" behavior="slide" scrollamount="7">
+        <div className="mb-1">
           <label className='lab'>Email Address</label>
           <input
             type="email"
-            className="form-control mx-auto"
+            className="form-control m-auto"
             placeholder="Enter email"
+            name="email"
+            value={input.email}
+            onChange={onInputChange}
+            onBlur={validateInput}
             required
           />
-          
         </div>
-        
-        <div className="mb-3">
+        </marquee>
+
+        <marquee direction="down" behavior="slide" scrollamount="5">
+        <div className="mb-1">
           <label className='lab'>Password</label>
           <input
             type="password"
-            className="form-control mx-auto"
+            className="form-control m-auto"
             placeholder="Enter password"
+            name="password"
+            value={input.password}
+            onChange={onInputChange}
+            onBlur={validateInput}
             required
           />
- 
         </div>
+        </marquee>
+        <h6 className='mesg'>{mesg}</h6>
+
         </div>
-          
-        <div className="mb-3">
+        <marquee direction="down" behavior="slide" scrollamount="5" >
+        <div className="mb-1">
           <div className="custom-control custom-checkbox lab">
             <input
               type="checkbox"
@@ -72,33 +157,49 @@ function Login(){
 
            <div className='forgdiv'>
               <p className="forget">
-                <a className='' href="*">Forget your password?</a>
+                <a className='' href="/forgot">Forget your password?</a>
+                {/* <Link to={/forget}>Forget your password?</Link> */}
               </p>
            </div>
           </div>
         </div>
+        </marquee>
+
+        <marquee direction="up" behavior="slide">
         <div>
-          <button type="submit" className='btnlog' id='button'onClick={()=>setStyle("imgs2")}>
+          <button type="submit" className='btnlog' id='button'>
             <span> Log in </span> 
           </button>
         </div>
-  
+        </marquee>
+
+ 
+        <marquee direction="left" behavior="slide" scrollamount="35">
         <div className="but1">
-          <p >Need an account? &nbsp;
-          <Link  className="aa" to={'/sign-up'} >
-                Sign up
-            </Link>
+          <p >Need an account? <Link onClick={Anima} className="aa">Sign up</Link>
            </p>
         </div>
-        
-       
-        
+        </marquee>
        </form>
       </div>
       </div>
+      <div className="row d-flex justify-content-center align-items-center" id={style2}>
+
+          <div className="carbg">
+              <img id="pic1" src="/Blue.png" alt='icon'/>
+          </div>
+
+          <div className="car">
+               <img  className="pic2h" src="/carblue.png" alt='car'/>
+          </div>
+            
+        </div>
       </div>
       
       
     )
     }
 export default Login
+
+
+

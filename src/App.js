@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './components/login.component'
 import SignUp from './components/signup.component'
 import Market from './components/market'
+import Forget from './components/forgot'
+import Reset from './components/reset'
+
 
 function App() {
       
@@ -23,7 +26,8 @@ function App() {
             <Route path="/sign-in" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/Market" element={<Market />} />
-
+            <Route path="/forgot" element={<Forget />} />
+            <Route path="/reset" element={<Reset />} />
           </Routes>
         
     </Router>
