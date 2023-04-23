@@ -1,7 +1,10 @@
 import { useNavigate, Link } from 'react-router-dom'
 import  React,  { useState } from 'react';
 import axios from 'axios';
-// import marquee from "react-fast-marquee";
+import Market from './market'
+import App from '../App'
+
+
 function Login(){
   const [style, setStyle] = useState("left");
   const [style2, setStyle2] = useState("imgs");
@@ -15,7 +18,7 @@ const navigate = useNavigate();
 async function Anima (){
   setStyle("left2");
   setStyle2("imgs2");
-  await delay(2100);
+  await delay(2900);
     navigate("/sign-up")
  }
 ///////////////////////////////////
@@ -66,8 +69,12 @@ const validateInput = e => {
     };
       await axios.post("https://car-mate-t012.onrender.com/api/v1/users/login", userData).then( (response) => {
       console.log(response.status, response.data.token);
-
-      navigate('/Market');
+      let userToken=response.data.token;
+      <>
+      <Market userToken={response.data.token} />
+      <App userToken={response.data.token} />
+      </>
+      navigate('/Market',{replace:true});
     })
     
     .catch(function (error) {
@@ -93,14 +100,13 @@ const validateInput = e => {
     return (
       
       
-      <div className="App" id='parent'>
-      <img src='Backgroundcarsm.jpeg' className='imgbk'></img>
+    <div className="App" id='parent'>
+      <img src='Backgroundcarsm.jpeg' className='imgbk' alt='background'></img>
 
       
-        <div className="" id={style}>
+      <div id={style}>
        
-        <div className='home'>
-
+      <div className='home'>
        <form  className='formlogin'  onSubmit={handleSubmit2} >
        <marquee direction="down" behavior="slide" scrollamount="3" >
          <h3 className='text-primary title'>Log In</h3>
@@ -182,17 +188,13 @@ const validateInput = e => {
       </div>
       </div>
       <div className="row d-flex justify-content-center align-items-center" id={style2}>
-
-          <div className="carbg">
-              <img id="pic1" src="/Blue.png" alt='icon'/>
-          </div>
-
+        <div className="carbg2">
           <div className="car">
-               <img  className="pic2h" src="/carblue.png" alt='car'/>
+           <img  className="pic2h" src="/carblue2.png" alt='car'/>
           </div>
-            
         </div>
       </div>
+    </div>
       
       
     )

@@ -78,7 +78,7 @@ const Forget =() => {
         };
     return (
         <div className="App" id='parent'>
-      <img src='Backgroundcarsm.jpeg' className='imgbk'></img>
+      <img src='Backgroundcarsm.jpeg' className='imgbk' alt='background'></img>
         
           <div className=" row d-flex justify-content-center align-items-center" id="left">
            
@@ -108,29 +108,32 @@ const Forget =() => {
 
 
         <div>
-        <br></br><button type="submit" className='btnlog' id='button'>
+         
+        <br></br><button type="submit" className='btnlog1' id='button'>
             <span>Send</span> 
           </button>
-          <p className="forgot-password  but1">
-          <br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back to <Link to="/" className="forget">Log in</Link>
+         
+          <p className="forgot-password  but2">
+          Back to <Link to="/" className="forget">Log in</Link>
         </p>
         </div>
+        
         
        </form>
       </div>
       </div>
       <div className="" id="imgs">
   
-  <div className="carbg">
-      <img id="pic1" src="/Blue.png" alt='icon'/>
-  </div>
+          <div className="carbg2">
 
-  <div className="car">
-       <img  className="pic2h" src="/carblue.png" alt='car'/>
-  </div>
+            <div className="car">
+                <img  className="pic2h" src="/carblue2.png" alt='car'/>
+            </div>
+
+          </div>
     
-</div>
       </div>
+    </div>
     );
     
 }

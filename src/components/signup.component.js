@@ -130,16 +130,12 @@ function SignUp() {
     return (
       
       <div className="App" id='parent'>
-      <img src='Backgroundcarsm2.jpeg' className='imgbk'></img>
+      <img src='Backgroundcarsm2.jpeg' className='imgbk' alt='background'></img>
         
-        <div className="" id={style2}>
-
-          <div className="carbg">
-              <img id="pic1" src="/Blue.png" alt='icon'/>
-          </div>
+        <div className="carbg" id={style2}>
 
           <div className="car">
-               <img  className="pic2" src="/carblue.png" alt='car'/>
+               <img  className="pic2" src="/carblue2.png" alt='car'/>
           </div>
             
         </div>

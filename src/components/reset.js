@@ -3,9 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const Reset =() => {
-    const [input, setInput] = useState({
-        email: '',
-      });
+    const [input, setInput] = useState();
      
       const [error, setError] = useState({
         password: '',
@@ -65,7 +63,7 @@ const Reset =() => {
       await axios.patch("https://car-mate-t012.onrender.com/api/v1/users/resetPassword/8a190fdfde558b1fddb5c40ab9a6b8ae70ea051b3c6f0ae32c1807c7a1edf361", userData).then( (response) => {
       console.log(response.status, response.data.token);
 
-      navigate('/Market');
+      navigate('/sign-in');
     })
     
     .catch(function (error) {
@@ -92,22 +90,8 @@ const Reset =() => {
     
     return (
         <div className="App" id='parent'>
-      <img src='Backgroundcarsm.jpeg' className='imgbk'></img>
-          
-          <div className="" id="imgs">
-  
-            <div className="carbg">
-                <img id="pic1" src="/Blue.png" alt='icon'/>
-            </div>
-  
-            <div className="car">
-                 <img  className="pic2h" src="/carblue.png" alt='car'/>
-            </div>
-              
-          </div>
-  
-        
-        
+      <img src='Backgroundcarsm.jpeg' className='imgbk' alt='background'></img>
+       
           <div className=" row d-flex justify-content-center align-items-center" id="left">
            
          
@@ -159,6 +143,18 @@ const Reset =() => {
        </form>
       </div>
       </div>
+
+      <div className="" id="imgs">
+  
+  <div className="carbg2">
+
+    <div className="car">
+        <img  className="pic2h" src="/carblue2.png" alt='car'/>
+    </div>
+
+  </div>
+
+</div>
       </div>
     );
   };
