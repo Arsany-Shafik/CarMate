@@ -32,8 +32,8 @@ h1,h2,h3,h4,h5,h6,label,span {
   .but2{
     color: #b9afaf;
     width: 61%;
-    margin-top: 0%;
-    margin-left: 60%;
+    margin-top: 1%;
+    margin-left: 37%;
     font-size: 115%;
     margin-bottom: 2.4vh;
     }
@@ -49,8 +49,9 @@ h1,h2,h3,h4,h5,h6,label,span {
   color: #FFFFFF;
 }
 .btnlog1{
-  margin-top: 1%;
-  margin-left: 20%;
+  margin-top: 0%;
+  margin-bottom: 2%;
+  margin-left: 35%;
   width: 25%;
   height: 2.1em;
   background: #007AFF;
