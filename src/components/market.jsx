@@ -11,7 +11,7 @@ function Market(){
         <div>
           <h2 className="Marketheader p-0">Find your perfect item</h2>
           <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
-  <li className="nav-item" role="presentation ">
+  <li className="nav-item" role="presentation">
     <button className="bg-primary marketheadnav2">All items</button>
   </li>
   <li className="nav-item" role="presentation">
