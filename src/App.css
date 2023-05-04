@@ -305,9 +305,10 @@ border-radius: 0px 20px 20px 0px;
 }
 .card{
   width:25vw;
-  height: 40vh;
+  height: 50vh;
   background: linear-gradient(180deg, #000000 -156.62%, rgba(255, 255, 255, 0.1) 100%);
 }
+
 .foter{
   font-weight: 12px;
   font-size: 12px;
@@ -336,8 +337,8 @@ background: #3B71CA;
 color: #141414;
 }
 .namemarket{
-width: 145px;
-height: 22px;
+width: 22vw;
+height: auto;
 
 font-family: 'Inter';
 font-style: normal;
@@ -347,4 +348,21 @@ line-height: 22px;
 letter-spacing: -0.408px;
 
 color: #BBBBBB;
+}
+.imagecover{
+  height: 50%;
+  object-fit: cover;
+  object-position: 20% 85%;
+}
+.noink{
+  text-decoration: none;
+}
+.MuiRating-iconFilled{
+  color: #FFD700;
+}
+.MuiRating-iconEmpty{
+  border-color:#FFD700;
+}
+.prodid{
+  width: 20vw;
 }

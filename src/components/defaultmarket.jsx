@@ -1,13 +1,6 @@
-import Navbar from "./navbar";
-import ProdcutList from "./productList";
-function Market(){
+function Defaultmarket(){
 
     return(
-      <>
-      <body className="bgmarket">
-        <div>
-        <Navbar />
-        </div>
         <div>
           <h2 className="Marketheader p-0">Find your perfect item</h2>
           <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
@@ -24,13 +17,10 @@ function Market(){
     <button className="marketheadnav2">Car parts</button>
   </li>
   <li className="nav-item border-0" role="presentation">
-    <a className="marketheadnav3" href="/market"><img src="/Filter.png" alt="Filter" /></a>
+    <a className="marketheadnav3" href="/market"><img src="Filter.png" alt="Filter" /></a>
   </li>
-</ul>
-        <ProdcutList />
+</ul>  
         </div>
-        </body>
-        </>
     );
-}
-export default Market;
+};
+export default Defaultmarket;

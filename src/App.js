@@ -8,7 +8,7 @@ import Market from './components/market'
 import Forget from './components/forgot'
 import Reset from './components/reset'
 import AddProduct from './components/addproduct'
-
+import ProductDetails from './components/ProductDetails'
 
 function App(userToken) {
       
@@ -25,6 +25,8 @@ function App(userToken) {
             <Route path="/forgot" element={<Forget />} />
             <Route path="/reset" element={<Reset />} />
             <Route path="/addproduct" element={<AddProduct />} />
+            <Route path="product/:productId" element={<ProductDetails />} />
+
 
           </Routes>
         
