@@ -154,7 +154,7 @@ const validateInput = e => {
 
         </div>
         <marquee direction="down" behavior="slide" scrollamount="5" >
-        <div className="mb-1">
+        <div className="mb-1 scro">
           <div className="custom-control custom-checkbox lab">
             <input
               type="checkbox"
@@ -174,7 +174,7 @@ const validateInput = e => {
         </div>
         </marquee>
 
-        <marquee direction="up" behavior="slide">
+        <marquee direction="up" behavior="slide" >
         <div>
           <button type="submit" className='btnlog' id='button'>
             <span> Log in </span> 

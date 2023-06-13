@@ -1,3 +1,53 @@
+@media only screen and (max-width:600px) {
+  .car,.carbg2,.carbg,#imgs{
+    display: none !important; 
+   width: 0;
+   height: 0;
+  }
+  .imgbk{
+    content: url("../public/-1_orig.jpeg");
+  }
+  #right{
+    margin-top: 15vw;
+  }
+  #left{
+    display: flex;
+    align-items: center;
+  }
+  .rme:before {
+    
+    top: 69%;
+    padding-right: 2vw;
+    height: 2.28vh;
+    width: 1.9177159590043924vw;
+}
+.rme {
+  padding-left: 4.5vw;
+}
+#button{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 4vw;
+}
+ .but1{
+  margin: 0 !important;
+}
+.scro{
+  margin: 0 !important;
+  height: 10vw !important;
+
+}
+.remem{
+  margin-bottom: 5vw;
+}
+
+}
+
+
 .imgbk{
   max-width: 100%;
   height: auto;

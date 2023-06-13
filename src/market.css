@@ -1,3 +1,39 @@
+@media only screen and (max-width:600px) {
+  .navigation{
+    width: 14vw !important;
+  }
+  
+.Marketheader {
+  margin-left: 12vw !important;
+}
+#cards{
+  display: flex ;
+  flex: 100 100 auto !important;
+  margin-left: 8vw !important;
+}
+.cardp{
+  flex: 100 100;
+  width: 30vw;
+}
+.card{
+  width: 38.5vw !important;
+}
+.imagecover {
+  object-position: 0% 85% !important;
+}
+.nav-item{
+  margin-bottom: 10px;
+}
+#item,#car,#access,#parts{
+  width: 15.08vw;
+}
+.marketheadnav3{
+  width: 10vw !important;
+  height: 10vw !important;
+
+  margin:3vw 0 0 5vw;
+}
+}
 .bgmarket{
     background-color: #000000;
     height: auto !important;
