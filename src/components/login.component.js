@@ -8,11 +8,14 @@ import App from '../App'
 function Login(){
   const [style, setStyle] = useState("left");
   const [style2, setStyle2] = useState("imgs");
-  const [input,setInput,setError] = useState({
+  const [input,setInput] = useState({
     email: '',
     password: '',
   });
-
+  const [error, setError] = useState({
+    email: '',
+    password: '',
+  });
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const navigate = useNavigate();
 async function Anima (){
@@ -45,10 +48,8 @@ const validateInput = e => {
 
       case "password":
         if (!value) {
-          stateObj[name] = "Please enter Confirm Password.";
-        } else if (input.password && value !== input.password) {
-          stateObj[name] = "Password and Confirm Password does not match.";
-        }
+          stateObj[name] = "Please enter Password.";
+        } 
         break;
 
       default:
@@ -127,6 +128,8 @@ const validateInput = e => {
             onBlur={validateInput}
             required
           />
+           {error.email && <span className='err'>{error.email}</span>}
+        
         </div>
         </marquee>
 
@@ -143,6 +146,8 @@ const validateInput = e => {
             onBlur={validateInput}
             required
           />
+           {error.password && <span className='err'>{error.password}</span>}
+      
         </div>
         </marquee>
         <h6 className='mesg'>{mesg}</h6>

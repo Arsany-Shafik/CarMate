@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
-@media only screen and (max-width:600px) {
- 
-}
+
 body {
   min-height: 100vh;
   display: flex;
