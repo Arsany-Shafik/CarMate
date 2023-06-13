@@ -1,19 +1,26 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
-import Navbar from "./navbar";
-import ProdcutList from "./productList";
+import { NavLink,Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Product from "./product";
+import NavbarA from "./navbarA";
 import {HiBarsArrowDown} from 'react-icons/hi2'
 import {BsSearch} from 'react-icons/bs'
 
+function Onlyaccessories(){
 
-function Market(){
-  
-
-  return(
-  <>
-  <body className="bgmarket">
+    const apiurl2='https://car-mate-t012.onrender.com/api/v1/prodcuts?Type=Accessories';
+    const [prodcuts2,setProducts2]=useState([]);
+    useEffect(() =>{ 
+      fetch(apiurl2)
+      .then((res) =>res.json())
+      .then((data)=>setProducts2(data))
+    },[]);
+    console.log(prodcuts2.product);
+    return(
+        <>  
+        <body className="bgmarket">
     <div>
-    <Navbar />
+    <NavbarA />
     </div>
     <div className="cont">
       <h2 className="Marketheader p-0">Find your perfect item 
@@ -30,33 +37,45 @@ function Market(){
     <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
       <li className="nav-item" role="presentation">
       <NavLink to="/market">
-        <button className="marketheadnav2 bg-primary" id='item'  >  All items</button>
+        <button className="marketheadnav2 " id='item'>  All items</button>
     </NavLink>
       </li>
       <li className="nav-item" role="presentation">
       <NavLink to="/onlycars" >
-        <button className="marketheadnav2" id='car'  >Cars</button>
+        <button className="marketheadnav2 " id='car'>Cars</button>
     </NavLink>
       </li>
       <li className="nav-item " role="presentation">
       <NavLink to="/onlyaccessories" >
-        <button className="marketheadnav2" id='access' >Accessories</button>
+        <button className="marketheadnav2 bg-primary" id='access'>Accessories</button>
     </NavLink>
       </li>
       <li className="nav-item" role="presentation">
       <NavLink to="/onlyparts" >
-        <button className="marketheadnav2" id='parts'  >Car parts</button>
+        <button className="marketheadnav2" id='parts'>Car parts</button>
     </NavLink>
       </li>
       <li className="nav-item marketheadnav3" role="presentation">
         <a className="marketheadna4" href="/market"><HiBarsArrowDown className="iconFilter"/></a>
       </li>
     </ul>
-    <ProdcutList />
-        
-        </div>
+
+<div className="row row-cols-1 col-lg row-cols-md-3 g-5 m-5 cards">
+    
+    {prodcuts2.product?.map((prodcut) =>{
+        return(
+            <div className="col cardp" key={prodcut._id}>
+                <Link to={`/product/${prodcut._id}`}  className="noink" >
+                  <Product prodcut={prodcut} />
+                </Link>
+            </div>
+        )
+    })}
+  
+  </div>
+  </div>
         </body>
-        </>
+</>
     );
-  }
-export default Market;
+}
+export default Onlyaccessories;

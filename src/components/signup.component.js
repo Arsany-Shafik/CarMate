@@ -1,6 +1,5 @@
 import { useNavigate, Link } from 'react-router-dom'
 import  React,{ useState } from 'react';
-// import Marquee from "react-fast-marquee";
 import axios from 'axios';
 function SignUp() {
   const [style, setStyle] = useState("right");
@@ -124,7 +123,7 @@ function SignUp() {
     });
   };
 
-
+ 
 
     
     return (
@@ -268,7 +267,7 @@ function SignUp() {
         </div>
 
       </form>
-      </div>
+      </div> 
       </div>
       </div>
 

@@ -1,14 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
+
 const Reset =() => {
-    const [input, setInput] = useState();
-     
-      const [error, setError] = useState({
+    const [error, setError] = useState({
         password: '',
         confirmPassword: ''
-      });
+      }); 
+      const [input, setInput] =  useState({
+        password: '',
+        confirmPassword: ''
+      }); 
+
     const onInputChange = e => {
         const { name, value } = e.target;
         setInput(prev => ({
@@ -53,17 +57,20 @@ const Reset =() => {
       const navigate = useNavigate();
       const [mesg, setmesg] = useState('');
 
-  const Submit2 =  async e => {
-    
-    e.preventDefault();
-    let userData = {
-      password: input.password,
-      ConfirmPassword:input.confirmPassword
-    };
-      await axios.patch("https://car-mate-t012.onrender.com/api/v1/users/resetPassword/8a190fdfde558b1fddb5c40ab9a6b8ae70ea051b3c6f0ae32c1807c7a1edf361", userData).then( (response) => {
+      
+      const Submit2 =  async e => {
+        let token = document.getElementById("token").value;
+        
+        e.preventDefault();
+        let userData = {
+          password: input.password,
+          ConfirmPassword:input.confirmPassword,
+          
+        };
+      await axios.patch(`https://car-mate-t012.onrender.com/api/v1/users/resetPassword/${token}`, userData).then( (response) => {
       console.log(response.status, response.data.token);
-
-      navigate('/sign-in');
+      alert("------------------\nsuccessful ^_^ \n\n The Password has been Changed")
+      navigate("/")
     })
     
     .catch(function (error) {
@@ -102,7 +109,20 @@ const Reset =() => {
 
         <div className='block'>
 
-        <div className="mb-1 ">
+        <div className="mb-2 ">
+          <label className='lab'>Reset Code</label>
+          <input
+            type="text"
+            id="token"
+            className="form-control m-auto"
+            placeholder="Enter the code"
+            name="token"
+            required
+          />
+          </div>
+              <h6 className='mesg'>{mesg}</h6>
+<hr/><hr/>
+          <div className="mb-1 ">
           <label className='lab'>Password</label>
           <input
             type="password"
@@ -134,7 +154,6 @@ const Reset =() => {
         </div>
         </div>
 
-        <h6 className='mesg'>{mesg}</h6>
         <div>
           <button type="submit" className='btnlog' id='button'>
             <span> Confirm</span> 
@@ -142,7 +161,7 @@ const Reset =() => {
         </div>
        </form>
       </div>
-      </div>
+      </div> 
 
       <div className="" id="imgs">
   

@@ -55,7 +55,7 @@ const Forget =() => {
         };
           await axios.patch("https://car-mate-t012.onrender.com/api/v1/users/forgetPassword", userData).then( (response) => {
           console.log(response.status, response.data.token);
-    
+          alert("--------------\nToken is sent to email. Please check your mail and spam folder")
           navigate('/reset');
         })
         .catch(function (error) {
@@ -74,7 +74,7 @@ const Forget =() => {
               // Something happened in setting up the request that triggered an Error
               console.log('Error: ', error.message);
             }
-          });
+          }); 
         };
     return (
         <div className="App" id='parent'>
@@ -103,7 +103,7 @@ const Forget =() => {
           />
         </div>
 
-        </div>
+        </div> 
         <h6 className='mesg'>{mesg}</h6>
 
 
@@ -116,7 +116,7 @@ const Forget =() => {
           <p className="forgot-password  but2">
           Back to <Link to="/" className="forget">Log in</Link>
         </p>
-        </div>
+        </div> 
         
         
        </form>

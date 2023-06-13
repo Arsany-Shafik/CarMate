@@ -1,10 +1,10 @@
 import { Rating } from "@mui/material";
-function Product(props){
+function Product2(props){
   const {prodcut}=props;
 
 
     return(
-<div  className="card">
+<div  className="card cd">
       <img src={prodcut.imageCover} className="card-img-top imagecover" alt={prodcut.Type} />
       <div className="card-body d-flex flex-column align-items-center text-center pb-0" >
         <h5 className="card-title namemarket">{prodcut.Name}</h5>
@@ -24,4 +24,4 @@ function Product(props){
 
     );
 }
-export default Product;
+export default Product2;
