@@ -7,6 +7,18 @@
   .imgbk{
     content: url("../public/-1_orig.jpeg");
   }
+  .aa{
+    display: block;
+    margin-right: 0 !important;
+    width: 10vw !important;
+  }
+  .forget{
+    display: block;
+    margin-right:0 !important;
+    padding-left:6vw !important;
+
+    width: 40vw !important;
+  }
   #right{
     margin-top: 15vw;
   }
