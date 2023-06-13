@@ -15,9 +15,15 @@
   .forget{
     display: block;
     margin-right:0 !important;
-    padding-left:6vw !important;
+    padding-left:9vw !important;
 
     width: 40vw !important;
+  }
+  .form-control{
+    width: 100% !important;
+  }
+  .lab{
+    margin-left: 0;
   }
   #right{
     margin-top: 15vw;
@@ -37,7 +43,7 @@
   padding-left: 4.5vw;
 }
 #button{
-  width: 50%;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
