@@ -1,6 +1,6 @@
 @media only screen and (max-width:600px) {
   .navigation{
-    width: 14vw !important;
+    width: 16vw !important;
   }
   
 .Marketheader {
@@ -22,16 +22,30 @@
   object-position: 0% 85% !important;
 }
 .nav-item{
-  margin-bottom: 10px;
+  margin-bottom: 2vh;
 }
 #item,#car,#access,#parts{
-  width: 15.08vw;
+  width: 23vw;
 }
 .marketheadnav3{
-  width: 10vw !important;
-  height: 10vw !important;
+  width: 13.5vw !important;
+  height: 7.8vh !important;
 
-  margin:3vw 0 0 5vw;
+  margin:1vh 0 0 6vw;
+}
+.prodid {
+  width: 82vw !important;
+  height: 100vh !important;
+  background: linear-gradient(180deg, #000000 100.62%, rgba(66, 65, 65, 0.1) 100%) !important;
+}
+.no1, .no2, .no3 {
+    width: 17.5vw !important;
+}
+.footerI{
+  width: 75vw !important;
+}
+.buy{
+  height: 7vh !important;
 }
 }
 .bgmarket{

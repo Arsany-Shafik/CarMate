@@ -16,11 +16,13 @@
     display: block;
     margin-right:0 !important;
     padding-left:9vw !important;
-
-    width: 40vw !important;
+    width: 46vw !important;
   }
   .form-control{
     width: 100% !important;
+  }
+  .formlogin{
+    width: 46vw !important;
   }
   .lab{
     margin-left: 0;
@@ -33,11 +35,15 @@
     align-items: center;
   }
   .rme:before {
-    
-    top: 69%;
+    top: 77%;
     padding-right: 2vw;
-    height: 2.28vh;
+    height: 1.7vh;
     width: 1.9177159590043924vw;
+}
+.rme::after{
+  position: absolute;
+  left: 1vw;
+  height: 1vh;
 }
 .rme {
   padding-left: 4.5vw;
