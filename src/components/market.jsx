@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Navbar from "./navbar";
 import ProdcutList from "./productList";
 import {HiBarsArrowDown} from 'react-icons/hi2'
@@ -7,9 +7,13 @@ import {BsSearch} from 'react-icons/bs'
 
 
 function Market(){
-  
-
-  return(
+  let token="no";
+  let location = useLocation();
+  if(location.state!=null){
+  token=location.state.token.tokrnn;
+  }
+  console.log(token);
+    return(
   <>
   <body className="bgmarket">
     <div>
@@ -29,7 +33,7 @@ function Market(){
    {/* ///////////////////////////////////// */}
     <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
       <li className="nav-item" role="presentation">
-      <NavLink to="/market">
+      <NavLink to="/market" >
         <button className="marketheadnav2 bg-primary" id='item'  >  All items</button>
     </NavLink>
       </li>
@@ -52,7 +56,7 @@ function Market(){
         <a className="marketheadna4" href="/market"><HiBarsArrowDown className="iconFilter"/></a>
       </li>
     </ul>
-    <ProdcutList />
+    <ProdcutList token={token}/>
         
         </div>
         </body>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Product2 from "./product2";
 import { Link } from "react-router-dom";
 
-function ProdcutList2(){
+function ProdcutList2(props){
     const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
     const [prodcuts,setProducts]=useState([]);
     useEffect(() =>{
@@ -20,7 +20,7 @@ function ProdcutList2(){
         return(
             <div className="col cardp" key={prodcut._id}  >
                 <Link to={`/product/${prodcut._id}`}  className="noink" >
-                 <Product2 prodcut={prodcut}/>
+                 <Product2 prodcut={prodcut} token={props}/>
                  </Link>
             </div>
         )
