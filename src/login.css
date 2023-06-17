@@ -1,3 +1,37 @@
+@media only screen and (min-width:200px) and (max-width:600px) {
+  .forgdiv{
+  margin: -4px;
+}
+.err{
+  display: none;
+}
+.but1{
+  font-size: 100% !important;
+  width: 70vw !important;
+  display: inline;
+}
+
+.home2{
+  margin: 0 !important;
+  height: 100vh !important;
+  max-height:100vh !important;
+}
+.lab{
+  width: 50vw !important;
+}
+.btnlog span{
+  width: 50vw;
+}
+#button{
+  width: 80% !important;
+}
+.upform{
+  width: 44vw !important;
+}
+#right{
+  margin-top: 2vh !important;
+}
+}
 @media only screen and (max-width:600px) {
   .car,.carbg2,.carbg,#imgs{
     display: none !important; 
@@ -12,11 +46,15 @@
     margin-right: 0 !important;
     width: 10vw !important;
   }
+
   .forget{
     display: block;
     margin-right:0 !important;
     padding-left:9vw !important;
     width: 46vw !important;
+  }
+  .forgdiv{
+         font-size: 10px !important;
   }
   .form-control{
     width: 100% !important;

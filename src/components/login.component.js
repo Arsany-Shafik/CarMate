@@ -127,7 +127,6 @@ const validateInput = e => {
                       onChange={onInputChange}
                       onBlur={validateInput}
                       required />
-                    {error.email && <span className='err'>{error.email}</span>}
 
                   </div>
                 </marquee>
@@ -144,7 +143,6 @@ const validateInput = e => {
                       onChange={onInputChange}
                       onBlur={validateInput}
                       required />
-                    {error.password && <span className='err'>{error.password}</span>}
 
                   </div>
                 </marquee>
