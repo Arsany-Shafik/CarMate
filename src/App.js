@@ -16,7 +16,7 @@ import Onlycars from './components/onlycars'
 import Onlyaccessories from './components/onlyaccessories'
 import Onlyparts from './components/onlyparts'
 import ProductDetails from './components/ProductDetails'
-
+import FavoriteList from './components/favoriteList'
 
 function App(userToken) {
       
@@ -38,6 +38,7 @@ function App(userToken) {
             <Route path="/onlyaccessories" element={<Onlyaccessories/>} />
             <Route path="/onlyparts" element={<Onlyparts/>} />
             <Route path="product/:productId" element={<ProductDetails />} />
+            <Route path="/favoriteList" element={<FavoriteList/>} />
 
 
           </Routes>

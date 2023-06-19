@@ -21,7 +21,7 @@ function ProdcutList(props){
         return(
             <div className="col cardp" key={prodcut._id}  >
                 <Link to={`/product/${prodcut._id}`}  className="noink" >
-                 <Product prodcut={prodcut} token={props}/>
+                 <Product prodcut={prodcut} tokenandId={props}/>
                  </Link>
             </div>
         )

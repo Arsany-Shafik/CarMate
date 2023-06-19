@@ -71,11 +71,13 @@ const validateInput = e => {
       password: input.password
     };
       await axios.post("https://car-mate-t012.onrender.com/api/v1/users/login", userData).then( (response) => {
-      console.log(response.status, response.data.token);
+      console.log(response.status, response.data.token,response.data.userId);
       const tokrnn=response.data.token;
+      const userId=response.data.userId;
       navigate('/Market',{
         state: {
-            token: {tokrnn}
+            token: {tokrnn},
+            userId: {userId}
         },
       });
     })
@@ -125,6 +127,7 @@ const validateInput = e => {
             className="form-control m-auto"
             placeholder="Enter email"
             name="email"
+            autoComplete='current-email'
             value={input.email}
             onChange={onInputChange}
             onBlur={validateInput}
@@ -141,6 +144,7 @@ const validateInput = e => {
             className="form-control m-auto"
             placeholder="Enter password"
             name="password"
+            autoComplete='current-password'
             value={input.password}
             onChange={onInputChange}
             onBlur={validateInput}

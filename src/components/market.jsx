@@ -9,11 +9,15 @@ import {BsSearch} from 'react-icons/bs'
 
 function Market(){
   let token="no";
+  let userId="no";
   let location = useLocation();
   if(location.state!=null){
   token=location.state.token.tokrnn;
+  userId=location.state.userId.userId;
   }
   console.log(token);
+  console.log(userId);
+
   function show_hide(){
     var click =document.getElementById("list-items");
     if (click.style.display==="block"){
@@ -79,7 +83,7 @@ function Market(){
           
 
           {/* ////////////////////////// */}
-    <ProdcutList token={token}/>
+    <ProdcutList token={token} userId={userId}/>
         
         </div>
         </body>

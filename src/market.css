@@ -4,10 +4,10 @@
     width: 34vw !important;
   }
   .grid-container {
-    gap: 19% !important;
+    gap: 12% !important;
 }
   .navigation{
-    width: 19vw !important;
+    width: 21vw !important;
   }
   .imagecover{
     object-fit: fill !important;
@@ -44,7 +44,7 @@
   margin:1vh 0 0 6vw;
 }
 .prodid {
-  width: 82vw !important;
+  width: 78vw !important;
   height: 100vh !important;
   background: linear-gradient(180deg, #000000 100.62%, rgba(66, 65, 65, 0.1) 100%) !important;
 }
@@ -98,10 +98,10 @@
   width: 13.5vw !important;
   height: 7.8vh !important;
 
-  margin:1vh 0 0 6vw;
+  margin:1vh 0 0 0;
 }
 .prodid {
-  width: 82vw !important;
+  width: 80vw !important;
   height: 100vh !important;
   background: linear-gradient(180deg, #000000 100.62%, rgba(66, 65, 65, 0.1) 100%) !important;
 }
