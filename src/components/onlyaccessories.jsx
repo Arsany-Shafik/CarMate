@@ -16,6 +16,14 @@ function Onlyaccessories(){
       .then((data)=>setProducts2(data))
     },[]);
     console.log(prodcuts2.product);
+
+    function show_hide(){
+      var click =document.getElementById("list-items");
+      if (click.style.display==="block"){
+        click.style.display="none";
+      }else{
+        click.style.display="block"
+      }}
     return(
         <>  
         <body className="bgmarket">
@@ -55,8 +63,17 @@ function Onlyaccessories(){
         <button className="marketheadnav2" id='parts'>Car parts</button>
     </NavLink>
       </li>
-      <li className="nav-item marketheadnav3" role="presentation">
-        <a className="marketheadna4" href="/market"><HiBarsArrowDown className="iconFilter"/></a>
+      <li className="nav-item" role="presentation">
+        <div className='dropdown'>
+       <button onClick={show_hide} className="nav-item marketheadnav3 "><HiBarsArrowDown className="iconFilter"/></button>
+          <center>
+            <div id='list-items'>
+              <a  href='*'>Price: High to Low</a>
+              <a  href='*'>Price: Low to High</a>
+              <a  href='*'>Rating: High to Low</a>
+            </div>
+          </center>
+            </div>
       </li>
     </ul>
 

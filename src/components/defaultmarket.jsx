@@ -4,7 +4,7 @@ import Navbar from "./navbar";
 import ProdcutList2 from "./productList2";
 import {HiBarsArrowDown} from 'react-icons/hi2'
 
-function Defaultmarket(props){
+function Defaultmarket(){
 
     return(
       <>
@@ -39,7 +39,7 @@ function Defaultmarket(props){
         <a className="marketheadna4" href="/market"><HiBarsArrowDown className="iconFilter"/></a>
       </li>
     </ul>
-    <ProdcutList2 token={props} />
+    <ProdcutList2 />
         
     </div>
         </body>

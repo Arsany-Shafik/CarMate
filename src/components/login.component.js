@@ -3,8 +3,6 @@ import  React,  { useState } from 'react';
 import axios from 'axios';
 import Market from './market'
 import App from '../App'
-import ProdcutList from './productList';
-import Product from './product';
 
 
 function Login(){
@@ -14,7 +12,7 @@ function Login(){
     email: '',
     password: '',
   });
-  const [error, setError] = useState({
+  const [error,setError] = useState({
     email: '',
     password: '',
   });
@@ -50,8 +48,10 @@ const validateInput = e => {
 
       case "password":
         if (!value) {
-          stateObj[name] = "Please enter Password.";
-        } 
+          stateObj[name] = "Please enter Confirm Password.";
+        } else if (input.password && value !== input.password) {
+          stateObj[name] = "Password and Confirm Password does not match.";
+        }
         break;
 
       default:
@@ -77,7 +77,7 @@ const validateInput = e => {
         state: {
             token: {tokrnn}
         },
-    });
+      });
     })
     
     .catch(function (error) {
@@ -101,99 +101,103 @@ const validateInput = e => {
  
 
     return (
-      <div className="App" id='parent'>
-        <img src='Backgroundcarsm.jpeg' className='imgbk' alt='background'></img>
+      
+      
+    <div className="App" id='parent'>
+      <img src='Backgroundcarsm.jpeg' className='imgbk' alt='background'></img>
 
+      
+      <div id={style}>
+       
+      <div className='home'>
+       <form  className='formlogin'  onSubmit={handleSubmit2} >
+       <marquee direction="down" behavior="slide" scrollamount="3" >
+         <h3 className='text-primary title'>Log In</h3>
+       </marquee>
 
-        <div id={style}>
+        <div className='block'>
 
-          <div className='home'>
-            <form className='formlogin' onSubmit={handleSubmit2}>
-              <marquee direction="down" behavior="slide" scrollamount="3">
-                <h3 className='text-primary title'>Log In</h3>
-              </marquee>
+        <marquee direction="down" behavior="slide" scrollamount="7">
+        <div className="mb-1">
+          <label className='lab'>Email Address</label>
+          <input
+            type="email"
+            className="form-control m-auto"
+            placeholder="Enter email"
+            name="email"
+            value={input.email}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            required
+          />
+        </div>
+        </marquee>
 
-              <div className='block'>
+        <marquee direction="down" behavior="slide" scrollamount="5">
+        <div className="mb-1">
+          <label className='lab'>Password</label>
+          <input
+            type="password"
+            className="form-control m-auto"
+            placeholder="Enter password"
+            name="password"
+            value={input.password}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            required
+          />
+        </div>
+        </marquee>
+        <h6 className='mesg'>{mesg}</h6>
 
-                <marquee direction="down" behavior="slide" scrollamount="7">
-                  <div className="mb-1">
-                    <label className='lab'>Email Address</label>
-                    <input
-                      type="email"
-                      className="form-control m-auto"
-                      placeholder="Enter email"
-                      name="email"
-                      value={input.email}
-                      onChange={onInputChange}
-                      onBlur={validateInput}
-                      required />
+        </div>
+        <marquee direction="down" behavior="slide" scrollamount="5" >
+        <div className="mb-1">
+          <div className="custom-control custom-checkbox lab">
+            <input
+              type="checkbox"
+              className="checkbox custom-control-input rmei"
+              id="customCheck1"
+              
+            />
+            <label className="custom-control-label rme" For="customCheck1">
+              Remember me
+            </label>
 
-                  </div>
-                </marquee>
-
-                <marquee direction="down" behavior="slide" scrollamount="5">
-                  <div className="mb-1">
-                    <label className='lab'>Password</label>
-                    <input
-                      type="password"
-                      className="form-control m-auto"
-                      placeholder="Enter password"
-                      name="password"
-                      value={input.password}
-                      onChange={onInputChange}
-                      onBlur={validateInput}
-                      required />
-
-                  </div>
-                </marquee>
-                <h6 className='mesg'>{mesg}</h6>
-
-              </div>
-              <marquee direction="down" behavior="slide" scrollamount="5">
-                <div className="mb-1 scro">
-                  <div className="custom-control custom-checkbox lab">
-                    <input
-                      type="checkbox"
-                      className="checkbox custom-control-input rmei"
-                      id="customCheck1" />
-                    <label className="custom-control-label rme" For="customCheck1">
-                      Remember me
-                    </label>
-
-                    <div className='forgdiv'>
-                      <p><Link to="/forgot" className="forget">Forget your password?</Link>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </marquee>
-
-              <marquee direction="up" behavior="slide">
-                <div>
-                  <button type="submit" className='btnlog' id='button'>
-                    <span> Log in </span>
-                  </button>
-                </div>
-              </marquee>
-
-
-              <marquee direction="left" behavior="slide" scrollamount="35">
-                <div className="but1">
-                  <p>Need an account? <Link onClick={Anima} className="aa">Sign up</Link>
-                  </p>
-                </div>
-              </marquee>
-            </form>
+           <div className='forgdiv'>
+           <p ><Link to="/forgot" className="forget">Forget your password?</Link>
+           </p>
+           </div>
           </div>
         </div>
-        <div className="row d-flex justify-content-center align-items-center" id={style2}>
-          <div className="carbg2">
-            <div className="car">
-              <img className="pic2h" src="/carblue2.png" alt='car' />
-            </div>
+        </marquee>
+
+        <marquee direction="up" behavior="slide">
+        <div>
+          <button type="submit" className='btnlog' id='button'>
+            <span> Log in </span> 
+          </button>
+        </div>
+        </marquee>
+
+ 
+        <marquee direction="left" behavior="slide" scrollamount="35">
+        <div className="but1">
+          <p >Need an account? <Link onClick={Anima} className="aa">Sign up</Link>
+           </p>
+        </div>
+        </marquee>
+       </form>
+      </div>
+      </div>
+      <div className="row d-flex justify-content-center align-items-center" id={style2}>
+        <div className="carbg2">
+          <div className="car">
+           <img  className="pic2h" src="/carblue2.png" alt='car'/>
           </div>
         </div>
       </div>
+    </div>
       
       
     )

@@ -258,7 +258,7 @@ function SignUp() {
            <span> Sign Up</span>
           </button>
           </marquee>
-          <marquee direction="left" behavior="slide" scrollamount="35" >
+          <marquee direction="left" behavior="slide" scrollamount="35">
           <p className="forgot-password  but1">
           Already registered <Link onClick={Anima} className='aa'>Log in</Link>
         </p>

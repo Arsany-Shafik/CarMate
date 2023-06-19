@@ -10,6 +10,7 @@ function ProdcutList(props){
       .then((res) =>res.json())
       .then((data)=>setProducts(data))
     },[]);
+    console.log(prodcuts.product);
     
 
     return(
@@ -19,8 +20,8 @@ function ProdcutList(props){
     {prodcuts.product?.map((prodcut) =>{
         return(
             <div className="col cardp" key={prodcut._id}  >
-                <Link to={`/product/${prodcut._id}`} className="noink" >
-                 <Product prodcut={prodcut}  token={props}/>
+                <Link to={`/product/${prodcut._id}`}  className="noink" >
+                 <Product prodcut={prodcut} token={props}/>
                  </Link>
             </div>
         )

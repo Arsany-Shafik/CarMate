@@ -5,13 +5,15 @@ import {RxExit} from 'react-icons/rx'
 import {FiUpload} from 'react-icons/fi'
 import {BsPerson} from 'react-icons/bs'
 import {MdOutlineCarRental} from 'react-icons/md'
+import {MdFavoriteBorder} from 'react-icons/md'
+
 
 function NavbarC(){
   const activeLink = "";
   const normalLink = "text-white-50";
 
     return(
-  <div className="nav nav-pills flex-column flex-sm-column pt-5 navigation">
+  <div className="nav nav-pills flex-column flex-sm-column pt-4 navigation">
    <div className="grid-container">
     <NavLink to="/onlycars" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
       <BsShop className=" icon iconmarket" title="Market" />
@@ -36,6 +38,10 @@ function NavbarC(){
     </NavLink>
 
       
+    <NavLink to="/favoriteList" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+        <MdFavoriteBorder  className="icon iconfavorite" title="Favorite List"/>
+    </NavLink>
+
 
     <NavLink to="/" className={({ isActive }) => (isActive ? activeLink : normalLink)}  id="exit">
         <RxExit  className="iconexit" title="Exit"/>
