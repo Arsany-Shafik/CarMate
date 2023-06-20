@@ -17,7 +17,6 @@ import Onlyaccessories from './components/onlyaccessories'
 import Onlyparts from './components/onlyparts'
 import ProductDetails from './components/ProductDetails'
 import FavoriteList from './components/favoriteList'
-
 function App(userToken) {
       
   return (

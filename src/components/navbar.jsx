@@ -8,10 +8,12 @@ import {MdOutlineCarRental} from 'react-icons/md'
 import {MdFavoriteBorder} from 'react-icons/md'
 
 
-function Navbar(){
+function Navbar(props){
   const activeLink = "";
   const normalLink = "text-white-50";
-
+console.log(props);
+const token=props.token;
+const userId=props.userId;
     return(
   <div className="nav nav-pills flex-column flex-sm-column pt-4 navigation">
    <div className="grid-container">
@@ -30,7 +32,7 @@ function Navbar(){
     <NavLink to="/addproduct" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <FiUpload className="icon iconupload" title="Add Product"/>
     </NavLink>
-    <NavLink to="/favoriteList" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink  to="/favoriteList" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <MdFavoriteBorder  className="icon iconfavorite" title="Favorite List"/>
     </NavLink>
 

@@ -8,8 +8,8 @@ import {BsSearch} from 'react-icons/bs'
 
 
 function Market(){
-  let token="no";
-  let userId="no";
+  let token="";
+  let userId="";
   let location = useLocation();
   if(location.state!=null){
   token=location.state.token.tokrnn;
@@ -30,7 +30,7 @@ function Market(){
   <>
   <body className="bgmarket">
     <div>
-    <Navbar />
+    <Navbar token={token} userId={userId}/>
     </div>
     <div className="cont">
       <h2 className="Marketheader p-0">Find your perfect item 

@@ -4,11 +4,12 @@ import axios from "axios";
 function Product(props){
   const {prodcut}=props;
   console.log(props);
+
 function favorite(){
 
 axios.patch(`https://car-mate-t012.onrender.com/api/v1/users/Favourite/${prodcut._id}`,{},{ headers: {
   'Content-Type': 'application/json',
-  'authorization': 'Bearer ' + props.token.token
+  'authorization': 'Bearer ' + props.tokenandId.token
 } }).then((response)=>{
 console.log(response.data);
 
@@ -18,6 +19,7 @@ console.log(response.data);
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx
       console.log('Error: ', error.response.data.message);
+      alert(error.response.data.message);
 
     }
      else if(error.response.status === 401) {
@@ -34,6 +36,7 @@ console.log(response.data);
       console.log('Error: ', error.message);
     }
 });
+
 
 }
 
