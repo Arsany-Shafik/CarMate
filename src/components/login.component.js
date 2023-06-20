@@ -164,7 +164,7 @@ const validateInput = e => {
               id="customCheck1"
               
             />
-            <label className="custom-control-label rme" For="customCheck1">
+            <label className="custom-control-label rme" htmlFor="customCheck1">
               Remember me
             </label>
 

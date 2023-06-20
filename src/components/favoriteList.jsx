@@ -1,8 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-import Market from "./market";
 import Navbar from "./navbar";
 import { HiBarsArrowDown } from "react-icons/hi2";
 import { BsSearch } from "react-icons/bs";
+import Favoritemap from "./favoritemap";
 
 function FavoriteList() {
   let token="";
@@ -80,7 +80,7 @@ function FavoriteList() {
           
 
           {/* ////////////////////////// */}
-        
+        <Favoritemap token={token} userId={userId}/>
         </div>
         </body>
         </>
