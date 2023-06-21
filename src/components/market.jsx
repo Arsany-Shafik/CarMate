@@ -7,15 +7,19 @@ import {BsSearch} from 'react-icons/bs'
 // import Dropdown from "./Dropdown";
 
 
-function Market(){
+function Market(props){
   let token="";
   let userId="";
   let location = useLocation();
-  if(location.state!=null){
+  if(location?.state?.token != null){
   token=location.state.token.tokrnn;
   userId=location.state.userId.userId;
   }
-  console.log(token);
+  if(location?.state?.data?.props != null){
+    token=location.state.data.props.token;
+    userId=location.state.data.props.userId;
+  }
+  console.log(location);
   console.log(userId);
 
   function show_hide(){

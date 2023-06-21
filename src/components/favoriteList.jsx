@@ -31,9 +31,9 @@ function FavoriteList() {
     </div>
     <div className="cont">
       <h2 className="Marketheader p-0">Find your perfect item 
-        <div class="Marketheader2">
-            <div class="d-flex justify-content-center p-3 h-100">
-                <div class="searchbar">
+        <div className="Marketheader2">
+            <div className="d-flex justify-content-center p-3 h-100">
+                <div className="searchbar">
                     <input className="search_input" type="text" placeholder="Search..."/>
                     <a className="search_icon" href="*"><BsSearch/></a>
                 </div>

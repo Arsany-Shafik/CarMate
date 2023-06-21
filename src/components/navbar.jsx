@@ -12,24 +12,23 @@ function Navbar(props){
   const activeLink = "";
   const normalLink = "text-white-50";
 console.log(props);
-const token=props.token;
-const userId=props.userId;
+
     return(
   <div className="nav nav-pills flex-column flex-sm-column pt-4 navigation">
    <div className="grid-container">
-    <NavLink to="/market" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink to="/market" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
       <BsShop className=" icon iconmarket" title="Market" />
     </NavLink>
 
-    <NavLink to="/about" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink to="/about" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
          <BsPerson className="icon iconprofile" title="Profile"/>
     </NavLink>
 
-    <NavLink to="/popup" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink to="/popup" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <MdOutlineCarRental  className="icon iconcar" title="Rent"/> 
     </NavLink>
 
-    <NavLink to="/addproduct" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink to="/addproduct" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <FiUpload className="icon iconupload" title="Add Product"/>
     </NavLink>
     <NavLink  to="/favoriteList" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
