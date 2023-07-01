@@ -6,11 +6,15 @@ function FavoriteList() {
   let token="";
   let userId='';
   let location = useLocation();
-  if(location.state!=null){
+  if(location?.state?.data?.props !=null){
   token=location.state.data.props.token;
   userId=location.state.data.props.userId;
-
   }
+  else if(location?.state?.data != null){
+    token=location.state.data.token;
+    userId=location.state.data.userId;
+  }
+
   console.log(location);
   console.log(token);
 
@@ -26,22 +30,22 @@ function FavoriteList() {
    {/* ///////////////////////////////////// */}
     <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
       <li className="nav-item" role="presentation">
-      <NavLink to="/market">
+      <NavLink state={{ data: {token:token, userId:userId} }} to="/market">
         <button className="marketheadnav2 bg-primary" id='item'  >  All items</button>
     </NavLink>
       </li>
       <li className="nav-item" role="presentation">
-      <NavLink to="/onlycars" >
+      <NavLink state={{ data: {token:token, userId:userId} }} to="/onlycars" >
         <button className="marketheadnav2" id='car'  >Cars</button>
     </NavLink>
       </li>
       <li className="nav-item " role="presentation">
-      <NavLink to="/onlyaccessories" >
+      <NavLink state={{ data: {token:token, userId:userId} }} to="/onlyaccessories" >
         <button className="marketheadnav2" id='access' >Accessories</button>
     </NavLink>
       </li>
       <li className="nav-item" role="presentation">
-      <NavLink to="/onlyparts" >
+      <NavLink state={{ data: {token:token, userId:userId} }} to="/onlyparts" >
         <button className="marketheadnav2" id='parts'  >Car parts</button>
     </NavLink>
       </li>

@@ -6,6 +6,19 @@ import {BsImages} from 'react-icons/bs'
 import {TbCurrentLocation} from 'react-icons/tb'
 
 function AddProduct(props){
+  let location = useLocation();
+  let token='';
+  let userId='';
+  if(location?.state?.data?.props != null){
+    token=location.state.data.props.token;
+    userId=location.state.data.props.userId;
+  }
+  else  if(location?.state?.data != null){
+    token=location.state.data.token;
+    userId=location.state.data.userId;
+  }
+  console.log(token);
+
 //////////////////drop image//////////////////
 const dragArea1= document.getElementById('img1');
 const dragArea2= document.getElementById('img2');
@@ -276,14 +289,7 @@ useEffect(() =>{
     }
 },[]);
 //////////////////////////////////////
-let location = useLocation();
-let token='';
-let userId='';
-if(location?.state?.data?.props != null){
-  token=location.state.data.props.token;
-  userId=location.state.data.props.userId;
-}
-console.log(token);
+
 ///////////////////////////////////
   const formSubmit =(e)=>{
     e.preventDefault();

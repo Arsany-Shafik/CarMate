@@ -22,7 +22,7 @@ function Market(props){
     token=location.state.data.props.token;
     userId=location.state.data.props.userId;
   }
-  if(location?.state?.data != null){
+ else if(location?.state?.data != null){
     token=location.state.data.token;
     userId=location.state.data.userId;
   }

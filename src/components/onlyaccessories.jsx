@@ -14,6 +14,7 @@ function Onlyaccessories(){
     token=location.state.data.token;
     userId=location.state.data.userId;
   }
+  
     const apiurl2='https://car-mate-t012.onrender.com/api/v1/prodcuts?Type=Accessories';
     // const [prodcuts2,setProducts2]=useState([]);
     // useEffect(() =>{ 
