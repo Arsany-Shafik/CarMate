@@ -99,9 +99,16 @@ function SignUp() {
       ConfirmPassword:input.confirmPassword
     };
       await axios.post("https://car-mate-t012.onrender.com/api/v1/users/signup/", userData).then( (response) => {
-      console.log(response.status, response.data.token);
+        console.log(response.status, response.data.token,response.data.userId);
+        const tokrnn=response.data.token;
+        const userId=response.data.userId;
 
-      navigate('/Market');
+      navigate('/Market',{
+        state: {
+            token: {tokrnn},
+            userId: {userId}
+        },
+      });
     })
     
     .catch(function (error) {
