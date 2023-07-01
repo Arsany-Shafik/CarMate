@@ -11,7 +11,12 @@ function Favoritemap(props){
     token=props.token;
   userId=props.userId;
   }
-
+  if (props?.userId?.userId!=null){
+    token=props.token.tokrnn;
+  userId=props.userId.userId;
+  }
+  
+console.log(userId);
     const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
     const [prodcuts,setProducts]=useState([]);
     const [favorite,setFavorite]=useState('');
@@ -64,9 +69,9 @@ function Favoritemap(props){
     <div id="cards" className="row row-cols-1 col-lg row-cols-md-3 g-5 m-5 cards ">
 
 
-        {arraypro?.map((prodcut)=> {
+        {arraypro?.map((prodcut,i)=> {
           return(
-            <div className="col cardp" key={prodcut._id}  >
+            <div className="col cardp" key={i}  >
           <Link to={`/product/${prodcut._id}`}  className="noink" >
            <Productfav prodcut={prodcut} tokenandId={props}/>
            </Link>

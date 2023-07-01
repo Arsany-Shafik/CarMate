@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import React from 'react';
 import { NavLink} from "react-router-dom";
 import Navbar from "./navbar";
-import ProdcutList2 from "./productList2";
+// import ProdcutList2 from "./productList2";
 import {HiBarsArrowDown} from 'react-icons/hi2'
 import {GiSpeedometer} from 'react-icons/gi'
 import {GiAutomaticSas} from 'react-icons/gi'
@@ -12,8 +12,37 @@ import {BsPerson} from 'react-icons/bs'
 import { Rating } from "@mui/material";
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
+import Product2 from "./product2";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+
 //////////////////////////
-function ProductDetails(){
+function ProductDetails(props){
+  let token="";
+  let userId="";
+  let location = useLocation();
+  if(location?.state?.token != null){
+  token=location.state.token.tokrnn;
+  userId=location.state.userId.userId;
+  }if(location?.state?.data != null){
+    token=location.state.data.token;
+    userId=location.state.data.userId;
+    }
+  if(location?.state?.data?.token?.token != null){
+    token=location.state.data.token.token;
+    userId=location.state.data.userId.userId;
+    }
+
+  if(location?.state?.data?.props != null){
+    token=location.state.data.props.token;
+    userId=location.state.data.props.userId;
+  }
+  console.log(location);
+  console.log(userId);
+
+
+
     const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
     const params=useParams();
     const [product,setProduct]=useState([]);
@@ -27,16 +56,16 @@ function ProductDetails(){
         };
         loadData();
     },[params]);
-console.log(product);
+
 ////////////USER REVIEW////////////////////
 const [rat,setRat]=useState([]);
 useEffect(() =>{
-  const loadData =async () => {
+  const loadData2 =async () => {
   fetch(`${apiurl}/${params.productId}`)
   .then((res) =>res.json())
-  .then((product)=>{setProduct(product.data);setRat(product.data.Ratings)})
+  .then((product)=>{setRat(product.data.Ratings)})
 };
-loadData();
+loadData2();
 },[params]);
 ///////////PRODUCT DESCR//////////////////
 const [showMore, setShowMore] = useState(false);
@@ -54,54 +83,147 @@ const divStyle = {
 ///////////////////////////
 function show_hide(){
   var click =document.getElementById("list-items");
+  var click2 =document.getElementById("rotate");
   if (click.style.display==="block"){
     click.style.display="none";
+    click2.style.transform= "rotatex(0deg)";
   }else{
     click.style.display="block"
+    click2.style.transform= "rotatex(180deg)";
   }}
+  ////////////SORT//////////////
+// const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
+const [tempList,setTempList]=useState([]);
+useEffect(() =>{
+  fetchData()
+},[]);
+const fetchData=()=>{
+  fetch(apiurl)
+  .then((res) =>res.json())
+  .then(json=>setTempList(json.product))
+}
+const ascendingEvent=()=>{
+    let data=[...tempList]
+    if(data.length > 0){
+       let result= data.sort((a,b)=> a.Price - b.Price)
+       setTempList(result)
+    }}
+const descendingEvent=()=>{
+    let data=[...tempList]
+    if(data.length > 0){
+       let result= data.sort((a,b)=> b.Price - a.Price)
+       setTempList(result)
+    }
+}
+const descendingRating=()=>{
+    let data=[...tempList]
+    if(data.length > 0){
+       let result= data.sort((a,b)=> b.RatingsAverage - a.RatingsAverage)
+       setTempList(result)
+    }
+}
+
+////////////BUY PRODUCT////////////////
+const buyProduct =(e)=>{
+  e.preventDefault();
+  let data={
+    success_url:"https://car-mate-bz2u.onrender.com",
+    cancel_url:"https://car-mate-bz2u.onrender.com",
+    products:
+    [
+        {
+            id: product._id,
+            Quantity : 1
+        }
+    ]
+  }
+  axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/buy`,data,{ headers: {
+    'Content-Type': 'application/json',
+    'authorization': 'Bearer ' + token
+  }}).then((response)=>{
+  console.log(response.data);
+  window.location.replace(response.data.url);
+  })
+    .catch(function (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log('Error: ', error.response.data.message);
+        alert(error.response.data.message);
+  
+      }
+       else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser 
+        // and an instance of http.ClientRequest in node.js
+        console.log(error.request);
+        console.log('Error: ', error.message);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error: ', error.message);
+      }
+  });
+  
+}
+
    return(
  <>
     <body className="bgmarket">
     <div>
-      <Navbar />
+      <Navbar token={token} userId={userId} />
     </div>
     <div className="cont">
       <h2 className="Marketheader p-0">Find your perfect item </h2>
     <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
       <li className="nav-item" role="presentation">
-      <NavLink to="/market">
+      <NavLink replace state={{ data: {token:token, userId:userId} }} to="/market">
         <button className="marketheadnav4 bg-primary" id='item'  >  All items</button>
     </NavLink>
       </li>
       <li className="nav-item" role="presentation">
-      <NavLink to="/onlycars" >
+      <NavLink replace state={{ data: {token:token, userId:userId} }} to="/onlycars" >
         <button className="marketheadnav4" id='car'  >Cars</button>
     </NavLink>
       </li>
       <li className="nav-item " role="presentation">
-      <NavLink to="/onlyaccessories" >
+      <NavLink replace state={{ data: {token:token, userId:userId} }} to="/onlyaccessories" >
         <button className="marketheadnav4" id='access' >Accessories</button>
     </NavLink>
       </li>
       <li className="nav-item" role="presentation">
-      <NavLink to="/onlyparts" >
+      <NavLink replace state={{ data: {token:token, userId:userId} }} to="/onlyparts" >
         <button className="marketheadnav4" id='parts'  >Car parts</button>
     </NavLink>
       </li>
             <li className="nav-item" role="presentation">
         <div className='dropdown'>
-       <button onClick={show_hide} className="nav-item marketheadnav33 "><HiBarsArrowDown className="iconFilter"/></button>
+       <button onClick={show_hide} id="rotate" className="nav-item marketheadnav33 "><HiBarsArrowDown className="iconFilter"/></button>
           <center>
-            <div id='list-items'>
-              <a  href='*'>Price: High to Low</a>
-              <a  href='*'>Price: Low to High</a>
-              <a  href='*'>Rating: High to Low</a>
+          <div id='list-items'>
+              <button onClick={descendingEvent}>Price: High to Low</button>
+              <button onClick={ascendingEvent}>Price: Low to High</button>
+              <button onClick={descendingRating}>Rating: High to Low</button>
             </div>
           </center>
             </div>
       </li>
     </ul>
-       <ProdcutList2 />
+      {/* ////////////////////////// */}
+        <div id="cards" className="row row-cols-1 col-lg-8 row-cols-md-3 g-5 m-5 cards ">
+
+        {tempList && tempList.length > 0 && tempList !== undefined ? tempList.map((item) =>{
+          return(
+             <div className="col cardp" key={item._id}  >
+                 <Link replace state={{ data: {token:token, userId:userId} }} to={`/product/${item._id}`}  className="noink" >
+                  <Product2 prodcut={item} token={token} userId={userId}/>
+               </Link>
+             </div>
+          )
+          }) : "NO DATA"
+          }
+        </div>
+     {/* ////////////////////////// */}
+       {/* <ProdcutList2/> */}
     </div>
 
         {/* ///////////////////////////////////////////////////////////// */}
@@ -154,7 +276,7 @@ function show_hide(){
            </div>
           <div className="part4 footerI">
            <h5 className="price">$ {product.Price}</h5>
-           <button type="submit" className="buy">Buy now</button>
+           <button type="submit" className="buy" onClick={buyProduct}>Buy now</button>
           </div>
         </form>
         </div>

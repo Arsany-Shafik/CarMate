@@ -17,6 +17,9 @@ import Onlyaccessories from './components/onlyaccessories'
 import Onlyparts from './components/onlyparts'
 import ProductDetails from './components/ProductDetails'
 import FavoriteList from './components/favoriteList'
+import LocationComponent from './components/locationComponent'
+
+
 function App(userToken) {
       
   return (
@@ -38,6 +41,7 @@ function App(userToken) {
             <Route path="/onlyparts" element={<Onlyparts/>} />
             <Route path="product/:productId" element={<ProductDetails />} />
             <Route path="/favoriteList" element={<FavoriteList/>} />
+            <Route path="/locationComponent" element={<LocationComponent/>} />
 
 
           </Routes>

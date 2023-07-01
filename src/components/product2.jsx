@@ -2,6 +2,7 @@ import { Rating } from "@mui/material";
 function Product2(props){
   const {prodcut}=props;
 
+
     return(
 <div  className="card cd">
       <img src={prodcut.imageCover} className="card-img-top imagecover" alt={prodcut.Type} />

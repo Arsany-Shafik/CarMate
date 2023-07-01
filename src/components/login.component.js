@@ -12,10 +12,12 @@ function Login(){
     email: '',
     password: '',
   });
+
   const [error,setError] = useState({
     email: '',
     password: '',
   });
+
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const navigate = useNavigate();
 async function Anima (){
@@ -70,7 +72,7 @@ const validateInput = e => {
       email: input.email,
       password: input.password
     };
-      await axios.post("https://car-mate-t012.onrender.com/api/v1/users/login", userData).then( (response) => {
+    await axios.post("https://car-mate-t012.onrender.com/api/v1/users/login", userData).then( (response) => {
       console.log(response.status, response.data.token,response.data.userId);
       const tokrnn=response.data.token;
       const userId=response.data.userId;
@@ -141,10 +143,10 @@ const validateInput = e => {
           <label className='lab'>Password</label>
           <input
             type="password"
-            className="form-control m-auto"
+            className="form-control m-auto "
             placeholder="Enter password"
             name="password"
-            autoComplete='current-password'
+            autoComplete='current-email'
             value={input.password}
             onChange={onInputChange}
             onBlur={validateInput}

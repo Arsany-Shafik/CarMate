@@ -8,37 +8,37 @@ import {MdOutlineCarRental} from 'react-icons/md'
 import {MdFavoriteBorder} from 'react-icons/md'
 
 
-function NavbarP(){
+function NavbarP(props){
   const activeLink = "";
   const normalLink = "text-white-50";
 
     return(
   <div className="nav nav-pills flex-column flex-sm-column pt-4 navigation">
    <div className="grid-container">
-    <NavLink to="/onlyparts" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink state={{ data: {props} }} to="/onlyparts" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
       <BsShop className=" icon iconmarket" title="Market" />
     </NavLink>
 
      
 
-    <NavLink to="/about" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink state={{ data: {props} }} to="/about" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
          <BsPerson className="icon iconprofile" title="Profile"/>
     </NavLink>
 
       
 
-    <NavLink to="/popup" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink state={{ data: {props} }} to="/popup" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <MdOutlineCarRental  className="icon iconcar" title="Rent"/> 
     </NavLink>
 
       
 
-    <NavLink to="/addproduct" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink state={{ data: {props} }} to="/addproduct" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <FiUpload className="icon iconupload" title="App Product"/>
     </NavLink>
 
       
-    <NavLink to="/favoriteList" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink state={{ data: {props} }} to="/favoriteList" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <MdFavoriteBorder  className="icon iconfavorite" title="Favorite List"/>
     </NavLink>
 

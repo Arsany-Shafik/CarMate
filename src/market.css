@@ -205,6 +205,8 @@
   width: 4vw;
   border: 0;
   background:linear-gradient(#FFFFFF,#000000);
+  transition:  transform .7s;
+
 }
 /* //////////// */
 .marketheadnav3{
@@ -213,11 +215,10 @@
   width: 4.169546120058565vw;
   border: 0;
   background:linear-gradient(#FFFFFF,#000000);
-  transition:  transform 1s;
+  transition:  transform .7s;
 }
 .marketheadnav3:hover,.marketheadnav33:hover{
   background:linear-gradient(#000000,#FFFFFF);
-    transform: rotatex(180deg);
 }
 
 .grid-container{
@@ -583,14 +584,214 @@ margin-left: 3%;
  border-radius: 5px;
 }  
 /* provide css to list items */   
-#list-items a {  
-  display: block;  
+#list-items button {  
+  display: block; 
+  border: none;
+  width: 15vw; 
   font-size: 20px;  
-  color: #FFFFFF;  
+  color: #FFFFFF; 
+  background-color: #141414; 
   text-decoration: none;  
   border-radius: 5px;
   padding:10px;
 }
-#list-items a:hover {  
+#list-items button:hover ,#list-items button:active {  
   background-color: #515151;  
+}
+/* /////////////ADD PRODUCT////////////////////////// */
+.inputAddPro{
+  display: block;
+  width: 100%;
+  padding: 1.2%;
+  padding-left: 3%;
+  color:#FFFFFF;
+  box-sizing: border-box;
+  background:none;
+  border: 1px solid #FFFFFF;
+border-radius: 0.9vh;
+}
+.inputAddPro:focus{
+  outline: none !important;
+  border:1px solid blue;
+}
+
+.labelCondition{
+  padding:0 15% 0 0;
+}
+
+.inputCondition{
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid #d3d3d3;
+  width: 1.1vw;
+  height: 2.5vh;
+  content: none;
+  outline: none;
+  border-radius: 100%;
+  margin:4% 2% 0 0%;
+}
+.inputCondition:checked{
+  appearance: none;
+  border-radius: 100%;
+  outline: none;
+  content: none;
+border: none;
+}
+.inputCondition:checked::before{
+position: absolute;
+background: none;
+border-radius: 100%;
+color: rgb(34, 18, 248)  !important;
+  content: "\00A0\2713\00A0" !important;
+  border: 1px solid #d3d3d3;
+font-weight: bolder;
+font-size: 12px;
+}
+
+.input3{
+display: flex;
+justify-content:space-between;
+}
+
+#inputCategory{
+  color: white;
+  background-color: black;
+}
+.vl{
+  border-left: 1px solid white;
+  height: 110.5%;
+  position: absolute;
+  left: 43%;
+  margin-left: -1%;
+  top: 0;
+}
+
+.addrightside, .smallCont{
+   width: 31vw;
+}
+
+.bigCont{
+  display: grid;
+  column-gap: 15%;
+  grid-template-columns: auto auto auto; 
+}
+/* /////////////IMAGE INPUT///////////////// */
+.imginput{
+  display: grid;
+  column-gap: 1.5%;
+  grid-template-columns: auto auto auto;  
+}
+
+.drag-area{
+  height: 35vh;
+  border: 1px dashed #e0eae0;
+  width: 17vw;
+  background: #1e2025;
+  border-radius: 1vh;
+  box-shadow: rgba(149, 157, 165,0.125) 0px 8px 24px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.drag-area.active{
+  border:1px solid blue;
+}
+.drag-areaSup.active{
+  border:1px solid blue;
+}
+.drag-area img{
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+}
+.drag-areaSup img{
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+}
+.drag-areaSupq{
+  display: grid;
+  row-gap: 2.5%;
+  grid-template-columns: auto auto auto; 
+}
+#img3{
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+  .drag-areaSup{
+  height: 17vh;
+  border: 1px dashed #e0eae0;
+  width: 17vw;
+  background: #1e2025;
+  border-radius: 1vh;
+  box-shadow: rgba(149, 157, 165,0.125) 0px 8px 24px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.iconimg{
+  font-size: 2vw;
+  color: #d3d3d3;
+}
+.drag-areaSup .iconimg{
+  font-size: 1.5vw;
+  color: #d3d3d3;
+}
+
+.header{
+font-size: 15px;
+font-weight:500;
+color: #8d8f92;
+}
+.drag-areaSup .header{
+font-size: 12px;
+font-weight:500;
+color: #8d8f92;
+}
+
+.button{
+  font-size: 15px;
+font-weight:500;
+color: #1683ff;
+cursor: pointer;
+}
+.drag-areaSup .button{
+  font-size: 12px;
+}
+.location{
+  width: 130%;
+}
+
+.btnAdd{
+  width: 20vw;
+  height: 7vh;
+  border-radius: 2vw;
+  font-size: larger;
+  font-weight: 700;
+  background:#2465df;
+  border: 0;
+  color:#FFFFFF;
+  margin-left: 50%;
+  box-shadow: rgba(149, 157, 165,0.3) 0px 8px 24px;
+}
+.btnAdd:active{
+  background:#1447a7;
+  border-width: 2px;
+  position: relative;
+  top: 1px;
+  box-shadow: none
+}
+
+.loc{
+  display: grid;
+  grid-template-columns:100% auto; 
+column-gap:33% ;
+}
+.locationIcon{
+  font-size: 2.5vw;
+  color: #FFFFFF;
+  margin-top: 1.9vw;
 }
