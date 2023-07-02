@@ -19,6 +19,11 @@ function AddProduct(props){
   }
   console.log(token);
 
+  const [prodid,setProdid]=useState();
+  const [imgCover,setImgCover]=useState();
+  const [img1,setImg1]=useState();
+  const [img2,setImg2]=useState();
+  const [img3,setImg3]=useState();
 //////////////////drop image//////////////////
 const dragArea1= document.getElementById('img1');
 const dragArea2= document.getElementById('img2');
@@ -195,6 +200,7 @@ if(validExtensions.includes(fileType)){
     let fileURL = fileReader.result;
     let imgTag = `<img src="${fileURL}" alt=""/>`;
     dragArea1.innerHTML=imgTag;
+    setImgCover(fileURL)
   };
   fileReader.readAsDataURL(file);
 }else{
@@ -214,6 +220,7 @@ if(validExtensions.includes(fileType)){
     let fileURL = fileReader.result;
     let imgTag = `<img src="${fileURL}" alt=""/>`;
     dragArea2.innerHTML=imgTag;
+    setImg1(fileURL);
   };
   fileReader.readAsDataURL(file);
 }else{
@@ -233,6 +240,7 @@ if(validExtensions.includes(fileType)){
     let fileURL = fileReader.result;
     let imgTag = `<img src="${fileURL}" alt=""/>`;
     dragArea3.innerHTML=imgTag;
+    setImg2(fileURL);
   };
   fileReader.readAsDataURL(file);
 }else{
@@ -252,6 +260,7 @@ if(validExtensions.includes(fileType)){
     let fileURL = fileReader.result;
     let imgTag = `<img src="${fileURL}" alt=""/>`;
     dragArea4.innerHTML=imgTag;
+    setImg3(fileURL);
   };
   fileReader.readAsDataURL(file);
 }else{
@@ -310,12 +319,25 @@ useEffect(() =>{
         Address: address
     }
 }
+var dataForm= new FormData();
+dataForm.append("imageCover",imgCover);
+dataForm.append("Images", img1);
+dataForm.append("Images", img2);
+dataForm.append("Images", img3);
+
+
   axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/add`,data,{ headers: {
     'Content-Type': 'application/json',
     'authorization': 'Bearer ' + token
   } }).then((response)=>{
+  console.log(response.data,response.data.message._id);
+  setProdid(response.data.message._id);
+  axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/addImage/${response.data.message._id}`,dataForm,{ headers: {
+    'Content-Type': 'application/json',
+    'authorization': 'Bearer ' + token
+  } }).then((response)=>{
   console.log(response.data);
-  
+  })
   })
     .catch(function (error) {
       if (error.response) {

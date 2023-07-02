@@ -10,7 +10,6 @@ import Market from './components/market'
 import Forget from './components/forgot'
 import Reset from './components/reset'
 import AddProduct from './components/addproduct'
-import Popup from './components/popup'
 // import PopupGfg from './components/popup'
 import Onlycars from './components/onlycars'
 import Onlyaccessories from './components/onlyaccessories'
@@ -18,6 +17,7 @@ import Onlyparts from './components/onlyparts'
 import ProductDetails from './components/ProductDetails'
 import FavoriteList from './components/favoriteList'
 import LocationComponent from './components/locationComponent'
+import Rent from './components/rent'
 
 
 function App(userToken) {
@@ -34,7 +34,7 @@ function App(userToken) {
             <Route path="/forgot" element={<Forget />} />
             <Route path="/reset" element={<Reset />} />
             <Route path="/addproduct" element={<AddProduct />} />
-            <Route path="/popup" element={<Popup />} />
+            <Route path="/rent" element={<Rent />} />
             {/* <Route path="/popup" element={<PopupGfg />} /> */}
             <Route path="/onlycars" element={<Onlycars/>} />
             <Route path="/onlyaccessories" element={<Onlyaccessories/>} />

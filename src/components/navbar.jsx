@@ -24,7 +24,7 @@ console.log(props);
          <BsPerson className="icon iconprofile" title="Profile"/>
     </NavLink>
 
-    <NavLink to="/popup" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink to="/rent" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <MdOutlineCarRental  className="icon iconcar" title="Rent"/> 
     </NavLink>
 

@@ -27,7 +27,7 @@ function NavbarC(props){
 
       
 
-    <NavLink state={{ data: {props} }} to="/popup" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink state={{ data: {props} }} to="/rent" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
         <MdOutlineCarRental  className="icon iconcar" title="Rent"/> 
     </NavLink>
 

@@ -72,8 +72,8 @@ console.log(userId);
         {arraypro?.map((prodcut)=> {
           return(
             <div className="col cardp" key={prodcut._id}  >
-          <Link to={`/product/${prodcut._id}`}  className="noink" >
-           <Productfav prodcut={prodcut} tokenandId={props}/>
+          <Link replace state={{ data: {token:token, userId:userId} }} to={`/product/${prodcut._id}`}  className="noink" >
+           <Productfav prodcut={prodcut} token={token} userId={userId} tokenandId={props}/>
            </Link>
       </div>
   )
