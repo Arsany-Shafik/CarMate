@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import React from 'react';
-import { NavLink} from "react-router-dom";
 import Navbar from "./navbar";
 // import ProdcutList2 from "./productList2";
 import {HiBarsArrowDown} from 'react-icons/hi2'
@@ -130,13 +129,8 @@ const buyProduct =(e)=>{
   let data={
     success_url:"https://car-mate-bz2u.onrender.com",
     cancel_url:"https://car-mate-bz2u.onrender.com",
-    products:
-    [
-        {
-            id: product._id,
-            Quantity : 1
-        }
-    ]
+    id: product._id,
+    Quantity : 1
   }
   axios.post(`https://car-mate-t012.onrender.com/api/v1/rents/rent`,data,{ headers: {
     'Content-Type': 'application/json',

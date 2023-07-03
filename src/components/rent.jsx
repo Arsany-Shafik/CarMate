@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Navbar from "./navbar";
 // import ProdcutList from "./productList";
 import {HiBarsArrowDown} from 'react-icons/hi2'
