@@ -127,7 +127,7 @@ const descendingRating=()=>{
 const buyProduct =(e)=>{
   e.preventDefault();
   let data={
-    success_url:"https://car-mate-bz2u.onrender.com",
+    success_url:"/market",
     cancel_url:"https://car-mate-bz2u.onrender.com",
     products:
     [

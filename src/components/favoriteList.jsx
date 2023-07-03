@@ -26,7 +26,8 @@ function FavoriteList() {
     <Navbar token={token} userId={userId}/>
     </div>
     <div className="cont">
-    <h2 className="Marketheader p-0">Your Wishlist </h2>
+    <h2 className="Marketheader p-0" style={{font:'Inter',fontWeight:'600'}}>Favorites </h2>
+    <h2 style={{fontSize:'20px',marginLeft:'4vw',color:'rgba(255, 255, 255, 0.8)',fontWeight:'500'}}>Find your saved items and get ready to order them.</h2>
    {/* ///////////////////////////////////// */}
     <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
       <li className="nav-item" role="presentation">

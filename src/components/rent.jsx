@@ -5,10 +5,10 @@ import Navbar from "./navbar";
 import {HiBarsArrowDown} from 'react-icons/hi2'
 import {BsSearch} from 'react-icons/bs'
 import { useEffect, useState } from "react";
-import Product from "./product";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from 'axios';
+import ProductRent from './productRent';
 
 
 function Rent(props){
@@ -52,7 +52,7 @@ useEffect(() =>{
 const fetchData= ()=>{
     axios.get('https://car-mate-t012.onrender.com/api/v1/rents').then((res)=>{
       setTempList2(res.data.rent);
-      setSearchApiData(res);
+      setSearchApiData(res.data.rent);
       console.log(res);
   })
 }
@@ -95,7 +95,7 @@ const deleteProduct =(Product)=>{
   .then((data)=>{if(data.isConfirmed){
     // fetch(`https://car-mate-t012.onrender.com/api/v1/prodcuts/${Product._id}`,{
     fetch(`https://car-mate-t012.onrender.com/api/v1/rents/`,{
-      method:"DELETE",
+      method:"delete",
       headers:{
         'Contect-Type':'application/json',
         'authorization': 'Bearer ' + token
@@ -116,7 +116,7 @@ const deleteProduct =(Product)=>{
     <Navbar token={token} userId={userId}/>
     </div>
     <div className="cont">
-      <h2 className="Marketheader p-0">Find your perfect item 
+      <h2 className="Marketheader p-0">Rent 
         <div className="Marketheader2">
             <div className="d-flex justify-content-center p-3 h-100">
                 <div className="searchbar">
@@ -128,27 +128,8 @@ const deleteProduct =(Product)=>{
       </h2>
    {/* ///////////////////////////////////// */}
     <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
-      <li className="nav-item" role="presentation">
-      <NavLink state={{ data: {token:token, userId:userId} }} to="/market">
-        <button className="marketheadnav2 bg-primary" id='item'  >  All items</button>
-    </NavLink>
-      </li>
-      <li className="nav-item" role="presentation">
-      <NavLink state={{ data: {token:token, userId:userId} }} to="/onlycars" >
-        <button className="marketheadnav2" id='car'  >Cars</button>
-    </NavLink>
-      </li>
-      <li className="nav-item " role="presentation">
-      <NavLink state={{ data: {token:token, userId:userId} }} to="/onlyaccessories" >
-        <button className="marketheadnav2" id='access' >Accessories</button>
-    </NavLink>
-      </li>
-      <li className="nav-item" role="presentation">
-      <NavLink state={{ data: {token:token, userId:userId} }} to="/onlyparts" >
-        <button className="marketheadnav2" id='parts'  >Car parts</button>
-    </NavLink>
-      </li>
-      <li className="nav-item" role="presentation" title="Sort">
+     
+      <li className="nav-item" style={{position:'absolute',left:'90%'}} role="presentation" title="Sort">
         {/* <a className="marketheadna4" href="*"><HiBarsArrowDown className="iconFilter"/></a> */}
         <div className='dropdown'>
        <button onClick={show_hide} id="rotate" className="nav-item marketheadnav3 "><HiBarsArrowDown className="iconFilter"/></button>
@@ -170,7 +151,7 @@ const deleteProduct =(Product)=>{
              <div className="col cardp" key={item._id}  >
                <button className='pull-right btn-close btn-close-white' onClick={()=>deleteProduct(item)} aria-label='close'></button>
                  <Link state={{ data:  {token:token, userId:userId} }} to={`/rents/${item._id}`}  className="noink" >
-                  <Product prodcut={item} token={token} userId={userId}/>
+                  <ProductRent prodcut={item} token={token} userId={userId}/>
                </Link>
 
              </div>

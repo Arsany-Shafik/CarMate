@@ -41,7 +41,7 @@ function Market(props){
       click2.style.transform= "rotatex(180deg)";
     }}
 ////////////SORT//////////////
-const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
+const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts?limit=200&page=1';
 const [tempList,setTempList]=useState([]);
 const [searchApiData, setSearchApiData] = useState([]);
 const [filterVal, setFilterVal] = useState('');

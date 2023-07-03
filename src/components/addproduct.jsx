@@ -19,7 +19,7 @@ function AddProduct(props){
   }
   console.log(token);
 
-  const [prodid,setProdid]=useState();
+
   const [imgCover,setImgCover]=useState();
   const [img1,setImg1]=useState();
   const [img2,setImg2]=useState();
@@ -200,7 +200,7 @@ if(validExtensions.includes(fileType)){
     let fileURL = fileReader.result;
     let imgTag = `<img src="${fileURL}" alt=""/>`;
     dragArea1.innerHTML=imgTag;
-    setImgCover(fileURL)
+    setImgCover(fileURL);
   };
   fileReader.readAsDataURL(file);
 }else{
@@ -298,12 +298,15 @@ useEffect(() =>{
     }
 },[]);
 //////////////////////////////////////
-
-///////////////////////////////////
   const formSubmit =(e)=>{
     e.preventDefault();
+    const formData = new FormData()
+    formData.append('imageCover',imgCover)
+    formData.append('Images',img1)
+    formData.append('Images',img2)
+    formData.append('Images',img3)
+
   let data={
-    summery: "aa",
     Name: name,
     Condition: condition,
     Description: description,
@@ -319,26 +322,19 @@ useEffect(() =>{
         Address: address
     }
 }
-var dataForm= new FormData();
-dataForm.append("imageCover",imgCover);
-dataForm.append("Images", img1);
-dataForm.append("Images", img2);
-dataForm.append("Images", img3);
-
-
   axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/add`,data,{ headers: {
     'Content-Type': 'application/json',
     'authorization': 'Bearer ' + token
   } }).then((response)=>{
-  console.log(response.data,response.data.message._id);
-  setProdid(response.data.message._id);
-  axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/addImage/${response.data.message._id}`,dataForm,{ headers: {
-    'Content-Type': 'application/json',
+  console.log(response.data);
+ 
+  axios.patch(`https://car-mate-t012.onrender.com/api/v1/prodcuts/addImage/${response.data.message._id}`,formData,{ headers: {
+    'Content-Type': 'application/form-data',
     'authorization': 'Bearer ' + token
   } }).then((response)=>{
   console.log(response.data);
   })
-  })
+})
     .catch(function (error) {
       if (error.response) {
         // The request was made and the server responded with a status code
@@ -424,8 +420,8 @@ dataForm.append("Images", img3);
       <select name="Type" className="inputAddPro" id="inputCategory" onChange={(e)=>setType(e.target.value)}>
       <option hidden>select ...</option>
       <option value={"Car"}>Car</option>
-      <option value={"Accessorie"}>Accessorie</option>
-      <option value={"Car Part"}>Car Part</option>
+      <option value={"Accessories"}>Accessorie</option>
+      <option value={"Car Parts"}>Car Part</option>
       </select>
     </div>
 

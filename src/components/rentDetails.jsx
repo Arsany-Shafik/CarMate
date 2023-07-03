@@ -12,9 +12,9 @@ import {BsPerson} from 'react-icons/bs'
 import { Rating } from "@mui/material";
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
-import Product2 from "./product2";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Product2Rent from "./product2Rent";
 
 
 //////////////////////////
@@ -97,10 +97,11 @@ const [tempList,setTempList]=useState([]);
 useEffect(() =>{
   fetchData()
 },[]);
-const fetchData=()=>{
-  fetch(apiurl)
-  .then((res) =>res.json())
-  .then(json=>setTempList(json.product))
+const fetchData= ()=>{
+  axios.get('https://car-mate-t012.onrender.com/api/v1/rents').then((res)=>{
+    setTempList(res.data.rent);
+    console.log(res);
+})
 }
 const ascendingEvent=()=>{
     let data=[...tempList]
@@ -137,7 +138,7 @@ const buyProduct =(e)=>{
         }
     ]
   }
-  axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/buy`,data,{ headers: {
+  axios.post(`https://car-mate-t012.onrender.com/api/v1/rents/rent`,data,{ headers: {
     'Content-Type': 'application/json',
     'authorization': 'Bearer ' + token
   }}).then((response)=>{
@@ -173,29 +174,9 @@ const buyProduct =(e)=>{
       <Navbar token={token} userId={userId} />
     </div>
     <div className="cont">
-      <h2 className="Marketheader p-0">Find your perfect item </h2>
+      <h2 className="Marketheader p-0">Rent </h2>
     <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
-      <li className="nav-item" role="presentation">
-      <NavLink replace state={{ data: {token:token, userId:userId} }} to="/market">
-        <button className="marketheadnav4 bg-primary" id='item'  >  All items</button>
-    </NavLink>
-      </li>
-      <li className="nav-item" role="presentation">
-      <NavLink replace state={{ data: {token:token, userId:userId} }} to="/onlycars" >
-        <button className="marketheadnav4" id='car'  >Cars</button>
-    </NavLink>
-      </li>
-      <li className="nav-item " role="presentation">
-      <NavLink replace state={{ data: {token:token, userId:userId} }} to="/onlyaccessories" >
-        <button className="marketheadnav4" id='access' >Accessories</button>
-    </NavLink>
-      </li>
-      <li className="nav-item" role="presentation">
-      <NavLink replace state={{ data: {token:token, userId:userId} }} to="/onlyparts" >
-        <button className="marketheadnav4" id='parts'  >Car parts</button>
-    </NavLink>
-      </li>
-            <li className="nav-item" role="presentation">
+            <li className="nav-item" role="presentation" style={{position:'absolute',left:'65%'}}>
         <div className='dropdown'>
        <button onClick={show_hide} id="rotate" className="nav-item marketheadnav33 "><HiBarsArrowDown className="iconFilter"/></button>
           <center>
@@ -214,8 +195,8 @@ const buyProduct =(e)=>{
         {tempList && tempList.length > 0 && tempList !== undefined ? tempList.map((item) =>{
           return(
              <div className="col cardp" key={item._id}  >
-                 <Link replace state={{ data: {token:token, userId:userId} }} to={`/product/${item._id}`}  className="noink" >
-                  <Product2 prodcut={item} token={token} userId={userId}/>
+                 <Link replace state={{ data: {token:token, userId:userId} }} to={`/rents/${item._id}`}  className="noink" >
+                  <Product2Rent prodcut={item} token={token} userId={userId}/>
                </Link>
              </div>
           )
@@ -227,9 +208,9 @@ const buyProduct =(e)=>{
     </div>
 
         {/* ///////////////////////////////////////////////////////////// */}
-        <div className="prodid">
+        <div className="prodid" >
           <form action=""> 
-        <div className="part1">
+        <div className="part1" style={{background:'rgba(4, 72, 205, 1)'}}>
             <h1> Product Details <h3 className="nameproduct"> {product.Name}</h3></h1>
           <div >
         {img.length > 0 ?
@@ -249,18 +230,11 @@ const buyProduct =(e)=>{
               <div className="no3"><GiSpeedometer className="iconI2"/><p className=" text-white icontext ">0-100 Kph<br/>32 s</p></div>
            </div>
            </div>
-           <div className="part2">
+           <div className="part2" style={{background:'rgba(4, 72, 205, 1)'}}>
              <h5>About</h5>
-             <p>The Condition is : {product.Condition}</p>
-             <p>The quantity is avaiable : {product.Quantity}</p>
-             <p>
-               {showMore ? text : `${text.substring(0, 50)}`}
-              <small className=" seemore"  onClick={() => setShowMore(!showMore)}>
-              {showMore ? " (Show less)" : "...Show more"}
-              </small>
-             </p>
+             <p>{product.Description}</p>
            </div>
-           <div className="part3">
+           <div className="part3" style={{background:'rgba(4, 72, 205, 1)'}}>
              <h5>Reviews</h5>
              {rat?.map((product) =>{
         return(
@@ -274,9 +248,9 @@ const buyProduct =(e)=>{
         )
     })}
            </div>
-          <div className="part4 footerI">
-           <h5 className="price">$ {product.Price}</h5>
-           <button type="submit" className="buy" onClick={buyProduct}>Buy now</button>
+          <div className="part4 footerI" style={{background:'rgba(4, 72, 205, 1)'}}>
+           <h5 className="price">$ {product.Price} / day</h5>
+           <button type="submit" className="buy" style={{background:'rgba(20, 20, 20, 1)'}} onClick={buyProduct}>Rent now</button>
           </div>
         </form>
         </div>
