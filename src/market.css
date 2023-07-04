@@ -798,5 +798,21 @@ column-gap:33% ;
 /* Rent
 /////////////////////////////////////////
 */
+.favoo:hover{
+color:transparent;
+}
+#checkfavo:hover{
+  color:red;
+}
+.pricerent{
+  padding: 4% 0 0 10%;
+  font-size: 21px;
+  color: white;
+  animation: mymove2 3s infinite;
+}
+@keyframes mymove2{
+  0% {padding: 4% 0 0 10%; font-size: 21px;}
+  50% {padding: 2% 0 0 10%; font-size: 23.0px; color: #14eb38;}
+}
 
 

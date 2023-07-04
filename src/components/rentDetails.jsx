@@ -127,8 +127,8 @@ const descendingRating=()=>{
 const buyProduct =(e)=>{
   e.preventDefault();
   let data={
-    success_url:"https://car-mate-bz2u.onrender.com",
-    cancel_url:"https://car-mate-bz2u.onrender.com",
+    success_url:"https://car-mate-bz2u.onrender.com/rent",
+    cancel_url:"https://car-mate-bz2u.onrender.com/rent",
     id: product._id,
     Quantity : 1
   }
@@ -243,7 +243,7 @@ const buyProduct =(e)=>{
     })}
            </div>
           <div className="part4 footerI" style={{background:'rgba(4, 72, 205, 1)'}}>
-           <h5 className="price">$ {product.Price} / day</h5>
+           <h5 className="pricerent" >$ {product.Price} / day</h5>
            <button type="submit" className="buy" style={{background:'rgba(20, 20, 20, 1)'}} onClick={buyProduct}>Rent now</button>
           </div>
         </form>
