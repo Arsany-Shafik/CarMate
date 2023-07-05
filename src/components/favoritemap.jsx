@@ -17,13 +17,7 @@ function Favoritemap(props){
   }
   
 console.log(userId);
-    const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
-    const [prodcuts,setProducts]=useState([]);
     const [favorite,setFavorite]=useState('');
-    const [arraypro]=useState([]);
-
-
-
 
     useEffect(() =>{
 
@@ -57,13 +51,10 @@ console.log(userId);
           });
         }
     });
-      fetch(apiurl)
-      .then((res) =>res.json())
-      .then((data)=>setProducts(data))
+
       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
-    console.log(prodcuts.product);
     console.log(props);
     console.log(favorite);
 
