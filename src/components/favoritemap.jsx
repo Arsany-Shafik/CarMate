@@ -26,9 +26,13 @@ console.log(userId);
 
 
     useEffect(() =>{
-      axios.get(`https://car-mate-t012.onrender.com/api/v1/users/${userId}`).then( (response) => {
-        console.log(response.status,response.data.data.user.Favorites);
-        setFavorite(response.data.data.user.Favorites);
+
+      axios.get(`https://car-mate-t012.onrender.com/api/v1/users/profile`,{ headers: {
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + token
+      }})  .then( (response) => {
+        console.log(response.status,response.data);
+        setFavorite(response.data.message.Favorites);
        
       }).catch(function (error) {
         if (error.response) {
@@ -45,7 +49,12 @@ console.log(userId);
           // Something happened in setting up the request that triggered an Error
           console.log('Error: ', error.message);
           alert('You are not logged in please log in first.');
-          navigate('/Market');
+          navigate('/Market',{
+            state: {
+                token: {token},
+                userId: {userId}
+            },
+          });
         }
     });
       fetch(apiurl)
@@ -56,20 +65,16 @@ console.log(userId);
 
     console.log(prodcuts.product);
     console.log(props);
-    console.log(arraypro);
+    console.log(favorite);
 
 
     return(
         <> 
-            {Array.from(favorite).map(element2=>{
-      axios.get(`https://car-mate-t012.onrender.com/api/v1/prodcuts/${element2}`).then( (response) => {
-        arraypro.push(response.data.data);
-})
-   })}
+
     <div id="cards" className="row row-cols-1 col-lg row-cols-md-3 g-5 m-5 cards ">
 
 
-        {arraypro?.map((prodcut,i)=> {
+        {Array.isArray(favorite)?favorite.map((prodcut,i)=> {
           return(
             <div className="col cardp" key={i}  >
           <Link replace state={{ data: {token:token, userId:userId} }} to={`/product/${prodcut._id}`}  className="noink" >
@@ -77,7 +82,7 @@ console.log(userId);
            </Link>
       </div>
   )
-})}
+}):null}
 
 </div>
 </>   
