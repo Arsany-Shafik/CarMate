@@ -9,7 +9,7 @@ function Product2(props){
       <div className="card-body d-flex flex-column align-items-center text-center pb-0" >
         <h5 className="card-title namemarket">{prodcut.Name}</h5>
         <h5 className="card-title text-white namemarket">$ {prodcut.Price}</h5>
-        <Rating className="pt-2 rating" name="read-only" value={prodcut.RatingsAverage} precision={0.1} size="small" readOnly />
+        <Rating className="pt-2 rating" name="read-only" value={prodcut.RatingsAverage} sx={{'& .MuiRating-iconEmpty':{color:'yellow'}}} precision={0.1} size="small" readOnly />
       </div>
 
       <div className="card-footer">

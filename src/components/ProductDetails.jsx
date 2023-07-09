@@ -304,7 +304,7 @@ const buyProduct =(e)=>{
             <div key={i}>
               <h5 className="rev1"><img src={product.user.Image} style={{width:'2vw'}} alt="user pic" className="revicon"/> <h6>{product.user.FirstName} {product.user.LastName}</h6></h5>
              <p>{product.Description}<br/>
-             <Rating className="pt-1 rating" name="read-only" value={product.Rating} precision={0.1} size="small" readOnly />
+             <Rating className="pt-1 rating" name="read-only" value={product.Rating} precision={0.1} sx={{'& .MuiRating-iconEmpty':{color:'yellow'}}} size="small" readOnly />
              </p>
              <hr/>
             </div>
@@ -312,12 +312,13 @@ const buyProduct =(e)=>{
     }):null}
     <div>
     <Rating className="pt-1 rating" 
+    sx={{'& .MuiRating-iconEmpty':{color:'yellow'}}}
     value={value}
     onChange={newValue => {
     setValue(newValue.target.defaultValue);
     console.log(newValue.target.defaultValue);
   }} 
-   precision={1} name="simple-controlled" style={{marginLeft:'33.3%'}}/>
+   precision={0.5} name="simple-controlled" style={{marginLeft:'33.3%'}}/>
 
     <input 
          name="review"

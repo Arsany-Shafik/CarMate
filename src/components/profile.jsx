@@ -8,7 +8,14 @@ import { MdOutlineAddAPhoto } from "react-icons/md";
 
 import { useLocation } from "react-router-dom";
 
-function Profile(props){
+function Profile(){
+ 
+  const [input,setInput] = useState({
+    password: '',
+    newpassword: '',
+    confirmpassword: '',
+
+  });
 
     let location = useLocation();
     let token='';
@@ -118,10 +125,78 @@ setUserEdit(response.data.message)
   }
   edituserid();
   },[token]);
+  function editBack(){
+    let data={
+      FirstName: userEdit.FirstName,
+      LastName: userEdit.LastName,
+      PhoneNumber: userEdit.PhoneNumber,
+      email:userEdit.email
+    }
+    axios.patch(`https://car-mate-t012.onrender.com/api/v1/users`,data,{ headers: {
+      'Content-Type': 'application/json',
+      'authorization': 'Bearer ' + token
+    } }).then((response)=>{
+    console.log(response.status,response);
+    }).catch(function (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        alert(error.response.data.message);
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+  }
+        else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser 
+        // and an instance of http.ClientRequest in node.js
+        console.log(error.request);
+        console.log('Error: ', error.message);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error: ', error.message);
+      }
+  });
+  }
+  function changePass(){
+    let data={
+      password:input.password,
+      newPassword:input.newpassword,
+      confirmPassword:input.confirmpassword
+    }
+    axios.post(`https://car-mate-t012.onrender.com/api/v1/users/changePassword`,data,{ headers: {
+      'Content-Type': 'application/json',
+      'authorization': 'Bearer ' + token
+    } }).then((response)=>{
+    console.log(response.status,response);
+    }).catch(function (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        alert(error.response.data.message);
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+  }
+        else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser 
+        // and an instance of http.ClientRequest in node.js
+        console.log(error.request);
+        console.log('Error: ', error.message);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error: ', error.message);
+      }
+  });
+  }
   const[userEdit,setUserEdit]=useState({FirstName:"",LastName:"",email:"",PhoneNumber:""});
     //////////////////////////
     const handleEdit=(e)=>{
       setUserEdit({...userEdit, [e.target.name]:e.target.value});
+    }
+    const onInputChange = e => {
+      const { name, value } = e.target;
+      setInput(prev => ({
+        ...prev,
+        [name]: value
+      }));
     }
     return( 
     <>
@@ -130,7 +205,7 @@ setUserEdit(response.data.message)
       <div>
         <Navbar token={token} userId={userId}/>
       </div>
-      <img src='profilebackground.png' className='imgbk2' alt='background'></img>
+      <img src='profilebackground.png' className='imgbk2'  alt='background'></img>
   <div id="bag">
       <div className="drag-areaa " >
         <div className="iconimg">
@@ -146,71 +221,86 @@ setUserEdit(response.data.message)
       <input className="browse" type="file" hidden/>
 
       <div className="profData ">
-       <div class="input-container t0">
+       <div className="input-container t0">
          <input 
          name="FirstName"
          placeholder="First Name" 
-         class="input-field if0" type="text" 
+         className="input-field if0" type="text" 
          value={userEdit.FirstName}
          onChange={(e)=>handleEdit(e)} 
          />
-         <label htmlFor="input-field" class="input-label">First NAME</label>
-         <span class="input-highlight"></span>
+         <label htmlFor="input-field" className="input-label">First NAME</label>
+         <span className="input-highlight"></span>
          {/* <FiEdit className="editIconT"></FiEdit> */}
        </div>
-       <div class="input-container t1">
+       <div className="input-container t1">
          <input 
          name="LastName"
          placeholder="Last Name" 
-         class="input-field if1" type="text" 
+         className="input-field if1" type="text" 
          value={userEdit.LastName}
          onChange={(e)=>handleEdit(e)} 
          />
-         <label htmlFor="input-field" class="input-label">Last NAME</label>
-         <span class="input-highlight"></span>
+         <label htmlFor="input-field" className="input-label">Last NAME</label>
+         <span className="input-highlight"></span>
          <FiEdit className="editIconT"></FiEdit>
        </div>
-       <div class="input-container t2">
-         <input placeholder="* * * * * * * *" class="input-field" type="password"/>
-         <label htmlFor="input-field" class="input-label">PASSWORD</label>
-         <span class="input-highlight"></span>
+       <div className="input-container t2">
+         <input placeholder="old password" className="input-field if2" type="password" name="password" onChange={onInputChange}/>
+         <label htmlFor="input-field" className="input-label">CURRENT PASSWORD</label>
+         <span className="input-highlight"></span>
          <FiEdit className="editIconT"></FiEdit>
+       </div>       <div className="input-container t21">
+         <input placeholder="new password" className="input-field if21" type="password" name="newpassword" onChange={onInputChange}/>
+         <label htmlFor="input-field" className="input-label">NEW PASSWORD</label>
+         <span className="input-highlight"></span>
+       </div>       <div className="input-container t22">
+         <input placeholder="confirm password" className="input-field if22" type="password" name="confirmpassword" onChange={onInputChange}/>
+         <label htmlFor="input-field" className="input-label">CONFIRM PASSWORD</label>
+         <span className="input-highlight"></span>
        </div>
-       <div class="input-container t3">
+       <div className="input-container t3">
          <input 
          name="email"
          placeholder="Enter Your Email" 
-         class="input-field" 
+         className="input-field" 
          type="email"
          value={userEdit.email}
          onChange={(e)=>handleEdit(e)} 
          />
-         <label htmlFor="input-field" class="input-label">EMAIL</label>
-         <span class="input-highlight"></span>
+         <label htmlFor="input-field" className="input-label">EMAIL</label>
+         <span className="input-highlight"></span>
          <FiEdit className="editIconT"></FiEdit>
        </div>
-       <div class="input-container t4">
+       <div className="input-container t4">
          <input 
          name="PhoneNumber"
          placeholder="Enter Your Phone Number" 
-         class="input-field" 
+         className="input-field" 
          type="tel"
          value={userEdit.PhoneNumber}
          onChange={(e)=>handleEdit(e)} 
          />
-         <label htmlFor="input-field" class="input-label">PHONE NUMBER</label>
-         <span class="input-highlight"></span>
+         <label htmlFor="input-field" className="input-label">PHONE NUMBER</label>
+         <span className="input-highlight"></span>
          <FiEdit className="editIconT"></FiEdit>
        </div>
-       <div class="input-container t5">
-         <input placeholder="250,000" class="input-field if5" type="password"/>
-         <label htmlFor="input-field" class="input-label">MONEY</label>
-         <span class="input-highlight"></span>
+       <div className="input-container t5">
+         <input  className="input-field if5" type="double" value={userEdit.Balance} readOnly/>
+         <label htmlFor="input-field" className="input-label">BALANCE</label>
+         <span className="input-highlight"></span>
        </div>
+       <button onClick={changePass}>Change password</button>
 
+<button onClick={editBack}>Edit</button>
       </div>
 
-
+      <div className="lists">
+      <div className="list1"></div>
+      <div className="list2"></div>
+      <div className="list3"></div>
+      <div className="list4"></div>
+     </div>
   </div>
 </body>
     </> 

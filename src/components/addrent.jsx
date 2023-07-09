@@ -5,7 +5,7 @@ import axios from "axios";
 import {BsImages} from 'react-icons/bs'
 import {TbCurrentLocation} from 'react-icons/tb'
 
-function AddProduct(){
+function AddRent(){
   let location = useLocation();
   let token='';
   let userId='';
@@ -273,10 +273,7 @@ if(validExtensions.includes(fileType)){
 //////////////////////////////////////////
 const [name,setName] = useState("");
 const [price,setPrice] = useState(0);
-const [condition,setCondition] = useState("");
 const [description,setDescription] = useState("");
-const [quantity,setQuantity] = useState(0);
-const [type,setType] = useState("");
 const [address,setAddress] = useState("");
 ///////////////LOCACTION////////////////
 const [latitude, setLatitude] = useState(null);
@@ -308,11 +305,8 @@ useEffect(() =>{
 
   let data={
     Name: name,
-    Condition: condition,
     Description: description,
     Price: price,
-    Quantity: quantity,
-    Type: type,
     Location: {
         type: "Point",
         Cordinates: [
@@ -322,13 +316,13 @@ useEffect(() =>{
         Address: address
     }
 }
-  axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/add`,data,{ headers: {
+  axios.post(`https://car-mate-t012.onrender.com/api/v1/rents/addRent`,data,{ headers: {
     'Content-Type': 'application/json',
     'authorization': 'Bearer ' + token
   } }).then((response)=>{
   console.log(response.data);
  
-  axios.patch(`https://car-mate-t012.onrender.com/api/v1/prodcuts/addImage/${response.data.message._id}`,formData,{ headers: {
+  axios.patch(`https://car-mate-t012.onrender.com/api/v1/rents/addImage/${response.data.message._id}`,formData,{ headers: {
     'Content-Type': 'application/form-data',
     'authorization': 'Bearer ' + token
   } }).then((response)=>{
@@ -364,16 +358,16 @@ useEffect(() =>{
    </div>
    
    <div className="cont">
-   <h2 className="Marketheader p-0">Add New Product </h2>
-   <Link state={{ data: {token:token, userId:userId} }} to="/addrent">
-   <button className="torent toupload">Rent Car</button>
+   <h2 className="Marketheader p-0">Rent Your Car</h2>
+   <Link state={{ data: {token:token, userId:userId} }} to="/addproduct">
+   <button className="torent">Upload Product</button>
    </Link>
 
-   <form className="p-5 formlogin" onSubmit={formSubmit}>
+   <form className="p-2 formlogin sika" onSubmit={formSubmit}>
   <div className=" bigCont">
     <div className=" smallCont">
 
-  <div className="form-group mb-5">
+  <div className="form-group mb-1">
 
     <label htmlFor="productName">
       Product Name
@@ -381,92 +375,15 @@ useEffect(() =>{
 
     <input 
     type="text" 
-    className="inputAddPro" 
+    className="inputAddPro inputAddPro1" 
     id="productName" 
     aria-describedby="emailHelp" 
     required
     onChange={(e)=>setName(e.target.value)}
     />
   </div>
-
-     <label htmlFor="Condition">
-      Condition
-    </label>
-    <div className="form-group mb-5">
-     <input
-      type="radio"
-      name="radioInline"
-      className="inputCondition"
-      id="inlineRadio1"
-      value="New"
-      onChange={(e)=>setCondition(e.target.value)}
-      />
-     <label className="radio-inline labelCondition">
-     New
-     </label>
-     <input
-      type="radio"
-      name="radioInline"
-      className="inputCondition"
-      id="inlineRadio2"
-      value="Used"
-      onChange={(e)=>setCondition(e.target.value)}
-      /> 
-     <label className="radio-inline labelCondition">
-      Used
-     </label>
-  </div>
-
-  <div className="form-row mb-5 input3">
-    <div className=" col-md-4 inlineInputs">
-      <label >Category</label>
-      <select name="Type" className="inputAddPro" id="inputCategory" onChange={(e)=>setType(e.target.value)}>
-      <option hidden>select ...</option>
-      <option value={"Car"}>Car</option>
-      <option value={"Accessories"}>Accessorie</option>
-      <option value={"Car Parts"}>Car Part</option>
-      </select>
-    </div>
-
-    <div className=" col-md-3 inlineInputs">
-      <label >Quantity</label>
-      <input type="number" className="inputAddPro" min={0} onChange={(e)=>setQuantity(e.target.value)}/>
-    </div>
-
-    <div className=" col-md-4 inlineInputs">
-      <label>Price</label>
-      <input
-       type="number"
-       className="inputAddPro"
-       min="0"
-       onChange={(e)=>setPrice(e.target.value)} 
-      />
-     
-    </div>
-
-  </div>
-
-<div className="form-group mb-5">
-    <label htmlFor="Description">
-     Description
-      </label>
-
-    <textarea 
-    className="inputAddPro" 
-    aria-describedby="description" 
-    rows={5}
-    cols={6}
-    onChange={(e)=>setDescription(e.target.value)}
-    />
-</div>
-</div>
-
- <div className="vl"></div>
-
-<div className="addrightside">
-
-        <label >Product Images</label>
-      <div className="form-group mb-5 imginput">
+  <label >Product Images</label>
+      <div className="form-group mb-1 imginput">
 
         <div className="drag-area" id="img1">
           <div className="iconimg">
@@ -508,8 +425,23 @@ useEffect(() =>{
 
       </div>
 
+
+<div className="form-group mb-1">
+    <label htmlFor="Description">
+     Description
+      </label>
+
+    <textarea 
+    className="inputAddPro inputAddPro2 " 
+    aria-describedby="description" 
+    rows={4}
+    cols={6}
+    onChange={(e)=>setDescription(e.target.value)}
+    />
+</div>
+
   <div className="loc">
-    <div className="form-group mb-5">
+  <div className="form-group mb-1">
       <label>Location</label>
       
       <input 
@@ -522,9 +454,22 @@ useEffect(() =>{
     </div>
             <TbCurrentLocation className=" locationIcon"></TbCurrentLocation>
     </div>
-    
-        <button type="submit" className="btnAdd">Upload Product</button>
+
 </div>
+
+
+<div className=" form-group mb-1">
+      <label>Price</label>
+      <input
+       type="number"
+       className="inputAddPro inputAddPro3"
+       min="0"
+       onChange={(e)=>setPrice(e.target.value)} 
+      />
+     
+    </div>
+
+        <button type="submit" className="btnAdd rnt">Upload Car</button>
 </div>
 </form>
 
@@ -533,4 +478,4 @@ useEffect(() =>{
 </>
     );
 }
-export default AddProduct; 
+export default AddRent; 

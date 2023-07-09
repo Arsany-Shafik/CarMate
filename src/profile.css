@@ -1,7 +1,12 @@
+.bgmarket{
+  overflow-y:auto;
+  position:absolute;
+}
 .imgbk2{
     width: 70%;
-    margin:1% 0 0 15%;
     height: auto;
+    margin:1% 0 0 15%;
+    position:absolute;
     filter:brightness(.05);
   }
 
@@ -69,6 +74,10 @@ margin: 0% 5%;
 }
 .t2 {
   margin:50% 0% ;
+}.t21 {
+  margin:70% 0% ;
+}.t22 {
+  margin:90% 0% ;
 }
 .t3 {
   margin:-10% 200%;
@@ -95,7 +104,7 @@ margin: 0% 5%;
 .if0, .if1{
   width:40%;
 }
-.if5{
+.if5, .if21, .if22{
   width:95%;
 }
 
@@ -123,7 +132,7 @@ margin: 0% 5%;
 
 /* Input field:focus styles */
 .input-field:focus + .input-label {
-  top: -20px;
+  top: -15px;
   font-size: 12px;
   color: #007bff;
 }
@@ -144,4 +153,22 @@ margin: 0% 5%;
   left: 39vw;
   top: 0vh;
   position: absolute;
+}
+.lists{
+  position: absolute;
+}
+
+.list1{
+  /* background-color: #007bff;
+  width: 30vw;
+  height: 20vh; */
+}
+.list2{
+  background-color: aqua;
+}
+.list3{
+  background-color: brown;
+}
+.list4{
+  background-color: chartreuse;
 }

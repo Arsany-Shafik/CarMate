@@ -610,6 +610,16 @@ margin-left: 3%;
   border: 1px solid #FFFFFF;
 border-radius: 0.9vh;
 }
+.inputAddPro1{
+  width: 115%;
+}
+.inputAddPro2{
+  width: 168%;
+}
+.inputAddPro3{
+  width: 15vw;
+  height: 7.1%;
+}
 .inputAddPro:focus{
   outline: none !important;
   border:1px solid blue;
@@ -666,8 +676,15 @@ justify-content:space-between;
   top: 0;
 }
 
+.sika{
+  margin-left: 10%;
+  }
+  
 .addrightside, .smallCont{
    width: 31vw;
+}
+.reent{
+  margin-top: 20%;
 }
 
 .bigCont{
@@ -785,6 +802,11 @@ cursor: pointer;
   box-shadow: none
 }
 
+.rnt{
+  margin-left: 10%;
+  margin-top: 150%;
+}
+
 .loc{
   display: grid;
   grid-template-columns:100% auto; 
@@ -816,3 +838,25 @@ color:transparent;
 }
 
 
+.torent {
+  position: absolute;
+  font-family: monospace;
+  background-color: #f3f7fe;
+  color: #030303;
+  border: none;
+  border-radius: 8px;
+  width: 10vw;
+  height: 4vh;
+  transition: .3s;
+  font-size: 15px;
+text-align: center;
+margin: -2.8% 0% 0% 22%;
+}
+.toupload{
+  margin: -2.8% 0% 0% 25%;
+}
+.torent:hover {
+  background-color: #3b82f6;
+  box-shadow: 0 0 0 5px #3b83f65f;
+  color: #fff;
+}

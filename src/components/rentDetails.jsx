@@ -18,6 +18,9 @@ import Product2Rent from "./product2Rent";
 
 //////////////////////////
 function RentDetails(props){
+  const[userEdit,setUserEdit]=useState({review:""});
+  const [value, setValue] = useState(1);
+
   let token="";
   let userId="";
   let location = useLocation();
@@ -40,6 +43,9 @@ function RentDetails(props){
   console.log(location);
   console.log(userId);
 
+  const handleEdit=(e)=>{
+    setUserEdit({userEdit, [e.target.name]:e.target.value});
+  }
 
 
     const apiurl='https://car-mate-t012.onrender.com/api/v1/rents';
@@ -90,6 +96,36 @@ function show_hide(){
     click.style.display="block"
     click2.style.transform= "rotatex(180deg)";
   }}
+  function addreview(){
+    console.log(value ,userEdit.review )
+   let data={
+    Rating:value ,
+    Description:userEdit.review
+   };
+    axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/${product._id}`,data,{ headers: {
+    'Content-Type': 'application/json',
+    'authorization': 'Bearer ' + token
+  } }).then((response)=>{
+  console.log(response.status);
+  }).catch(function (error) {
+    if (error.response) {
+      console.log(error.response.data.message);
+      alert(error.response.data.message);
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+}
+      else if (error.request) {
+      // The request was made but no response was received
+      // `error.request` is an instance of XMLHttpRequest in the browser 
+      // and an instance of http.ClientRequest in node.js
+      console.log(error.request);
+      console.log('Error: ', error.message);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error: ', error.message);
+    }
+});
+  }
   ////////////SORT//////////////
 // const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
 const [tempList,setTempList]=useState([]);
@@ -235,17 +271,37 @@ const buyProduct =(e)=>{
            </div>
            <div className="part3" style={{background:'rgba(4, 72, 205, 1)'}}>
              <h5>Reviews</h5>
-             {rat?.map((product) =>{
+             {Array.isArray(rat) ? rat.map((product,i) =>{
         return(
-            <div>
-              <h5 className="rev1"><BsPerson className="revicon"/> <h6>{product.user}</h6></h5>
+            <div key={i}>
+              <h5 className="rev1"><img src={product.user.Image} style={{width:'2vw'}} alt="user pic" className="revicon"/> <h6>{product.user.FirstName} {product.user.LastName}</h6></h5>
              <p>{product.Description}<br/>
              <Rating className="pt-1 rating" name="read-only" value={product.Rating} precision={0.1} size="small" readOnly />
              </p>
              <hr/>
             </div>
         )
-    })}
+    }):null}
+        <div>
+    <Rating className="pt-1 rating" 
+    sx={{'& .MuiRating-iconEmpty':{color:'yellow'}}}
+    value={value}
+    onChange={newValue => {
+    setValue(newValue.target.defaultValue);
+    console.log(newValue.target.defaultValue);
+  }} 
+   precision={0.5} name="simple-controlled" style={{marginLeft:'33.3%'}}/>
+
+    <input 
+         name="review"
+         placeholder="Enter Your review" 
+         className="input-field" 
+         type="text"
+         value={userEdit.review}
+         onChange={(e)=>handleEdit(e)} 
+         />
+             <button type="button" className="buy" onClick={addreview} style={{background:'white', color:'#007AFF',fontWeight:'650'}}>Add review</button>
+    </div>
            </div>
           <div className="part4 footerI" style={{background:'rgba(4, 72, 205, 1)'}}>
            <h5 className="pricerent" >$ {product.Price} / day</h5>
