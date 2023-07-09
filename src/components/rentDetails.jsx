@@ -168,10 +168,10 @@ const buyProduct =(e)=>{
       <Navbar token={token} userId={userId} />
     </div>
     <div className="cont">
-      <h2 className="Marketheader p-0">Rent </h2>
-    <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">
-            <li className="nav-item" role="presentation" style={{position:'absolute',left:'65%'}}>
-        <div className='dropdown'>
+      <h2 className="Marketheader p-0">Rent
+         
+      <span className="h5 text-secondary">  (Find Your Perfect Item)
+         <div className='dropdown' style={{marginLeft:"35%"}}>
        <button onClick={show_hide} id="rotate" className="nav-item marketheadnav33 "><HiBarsArrowDown className="iconFilter"/></button>
           <center>
           <div id='list-items'>
@@ -181,8 +181,8 @@ const buyProduct =(e)=>{
             </div>
           </center>
             </div>
-      </li>
-    </ul>
+      </span>
+      </h2>
       {/* ////////////////////////// */}
         <div id="cards" className="row row-cols-1 col-lg-8 row-cols-md-3 g-5 m-5 cards ">
 
@@ -226,7 +226,12 @@ const buyProduct =(e)=>{
            </div>
            <div className="part2" style={{background:'rgba(4, 72, 205, 1)'}}>
              <h5>About</h5>
-             <p>{product.Description}</p>
+             <p>
+               {showMore ? text : `${text.substring(0, 10)}`}
+              <small className=" seemore"  onClick={() => setShowMore(!showMore)}>
+              {showMore ? " (Show less)" : "...Show more"}
+              </small>
+             </p>
            </div>
            <div className="part3" style={{background:'rgba(4, 72, 205, 1)'}}>
              <h5>Reviews</h5>

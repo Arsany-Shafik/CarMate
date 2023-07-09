@@ -3,6 +3,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import './market.css'
 import './login.css'
+import './profile.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './components/login.component'
 import SignUp from './components/signup.component'
@@ -17,8 +18,9 @@ import ProductDetails from './components/ProductDetails'
 import FavoriteList from './components/favoriteList'
 import Rent from './components/rent'
 import RentDetails from './components/rentDetails'
+import Profile from './components/profile'
 
-function App(userToken) {
+function App() {
       
   return (
     
@@ -39,6 +41,7 @@ function App(userToken) {
             <Route path="rents/:productId" element={<RentDetails />} />
             <Route path="/favoriteList" element={<FavoriteList/>} />
             <Route path="/rent" element={<Rent />} />
+            <Route path="/profile" element={<Profile />} />
 
 
           </Routes>

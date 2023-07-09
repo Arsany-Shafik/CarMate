@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useLocation, useParams } from "react-router-dom";
 import React from 'react';
 import { NavLink} from "react-router-dom";
 import Navbar from "./navbar";
-// import ProdcutList2 from "./productList2";
 import {HiBarsArrowDown} from 'react-icons/hi2'
 import {GiSpeedometer} from 'react-icons/gi'
 import {GiAutomaticSas} from 'react-icons/gi'
 import {GiCarSeat} from 'react-icons/gi'
-import {BsPerson} from 'react-icons/bs'
 import { Rating } from "@mui/material";
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
@@ -19,6 +17,10 @@ import axios from "axios";
 
 //////////////////////////
 function ProductDetails(props){
+  const[userEdit,setUserEdit]=useState({review:""});
+  const [value, setValue] = useState(1);
+
+
   let token="";
   let userId="";
   let location = useLocation();
@@ -41,7 +43,9 @@ function ProductDetails(props){
   console.log(location);
   console.log(userId);
 
-
+  const handleEdit=(e)=>{
+    setUserEdit({userEdit, [e.target.name]:e.target.value});
+  }
 
     const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
     const params=useParams();
@@ -62,11 +66,13 @@ const [rat,setRat]=useState([]);
 useEffect(() =>{
   const loadData2 =async () => {
   fetch(`${apiurl}/${params.productId}`)
-  .then((res) =>res.json())
-  .then((product)=>{setRat(product.data.Ratings)})
+  .then((res) =>res.json() ) 
+  .then((product)=>{setRat(product.data.Ratings) ;console.log(product.data.Ratings);
+  })
 };
 loadData2();
 },[params]);
+console.log(rat);
 ///////////PRODUCT DESCR//////////////////
 const [showMore, setShowMore] = useState(false);
 const text =`${product.Description}`;
@@ -91,6 +97,36 @@ function show_hide(){
     click.style.display="block"
     click2.style.transform= "rotatex(180deg)";
   }}
+  function addreview(){
+    console.log(value ,userEdit.review )
+   let data={
+    Rating:value ,
+    Description:userEdit.review
+   };
+    axios.post(`https://car-mate-t012.onrender.com/api/v1/prodcuts/${product._id}`,data,{ headers: {
+    'Content-Type': 'application/json',
+    'authorization': 'Bearer ' + token
+  } }).then((response)=>{
+  console.log(response.status);
+  }).catch(function (error) {
+    if (error.response) {
+      console.log(error.response.data.message);
+      alert(error.response.data.message);
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+}
+      else if (error.request) {
+      // The request was made but no response was received
+      // `error.request` is an instance of XMLHttpRequest in the browser 
+      // and an instance of http.ClientRequest in node.js
+      console.log(error.request);
+      console.log('Error: ', error.message);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error: ', error.message);
+    }
+});
+  }
   ////////////SORT//////////////
 // const apiurl='https://car-mate-t012.onrender.com/api/v1/prodcuts';
 const [tempList,setTempList]=useState([]);
@@ -213,7 +249,7 @@ const buyProduct =(e)=>{
 
         {tempList && tempList.length > 0 && tempList !== undefined ? tempList.map((item) =>{
           return(
-             <div className="col cardp" key={item._id}  >
+             <div className="col cardp" key={item._id} >
                  <Link replace state={{ data: {token:token, userId:userId} }} to={`/product/${item._id}`}  className="noink" >
                   <Product2 prodcut={item} token={token} userId={userId}/>
                </Link>
@@ -254,7 +290,7 @@ const buyProduct =(e)=>{
              <p>The Condition is : {product.Condition}</p>
              <p>The quantity is avaiable : {product.Quantity}</p>
              <p>
-               {showMore ? text : `${text.substring(0, 50)}`}
+               {showMore ? text : `${text.substring(0, 10)}`}
               <small className=" seemore"  onClick={() => setShowMore(!showMore)}>
               {showMore ? " (Show less)" : "...Show more"}
               </small>
@@ -262,17 +298,37 @@ const buyProduct =(e)=>{
            </div>
            <div className="part3">
              <h5>Reviews</h5>
-             {rat?.map((product) =>{
+             {Array.isArray(rat) ? rat.map((product,i) =>{
+              console.log(product);
         return(
-            <div>
-              <h5 className="rev1"><BsPerson className="revicon"/> <h6>{product.user}</h6></h5>
+            <div key={i}>
+              <h5 className="rev1"><img src={product.user.Image} style={{width:'2vw'}} alt="user pic" className="revicon"/> <h6>{product.user.FirstName} {product.user.LastName}</h6></h5>
              <p>{product.Description}<br/>
              <Rating className="pt-1 rating" name="read-only" value={product.Rating} precision={0.1} size="small" readOnly />
              </p>
              <hr/>
             </div>
         )
-    })}
+    }):null}
+    <div>
+    <Rating className="pt-1 rating" 
+    value={value}
+    onChange={newValue => {
+    setValue(newValue.target.defaultValue);
+    console.log(newValue.target.defaultValue);
+  }} 
+   precision={1} name="simple-controlled" style={{marginLeft:'33.3%'}}/>
+
+    <input 
+         name="review"
+         placeholder="Enter Your review" 
+         className="input-field" 
+         type="text"
+         value={userEdit.review}
+         onChange={(e)=>handleEdit(e)} 
+         />
+             <button type="button" className="buy" onClick={addreview} style={{background:'white', color:'#007AFF',fontWeight:'650'}}>Add review</button>
+    </div>
            </div>
           <div className="part4 footerI">
            <h5 className="price">$ {product.Price}</h5>

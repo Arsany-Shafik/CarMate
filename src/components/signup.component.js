@@ -142,6 +142,7 @@ function SignUp() {
 
           <div className="car">
                <img  className="pic2" src="/carblue2.png" alt='car'/>
+               <img src='car mate white-01.png' className='logopro'  alt='project logo'></img>
           </div>
             
         </div>

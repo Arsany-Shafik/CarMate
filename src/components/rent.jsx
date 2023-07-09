@@ -42,7 +42,6 @@ function Rent(props){
       click2.style.transform= "rotatex(180deg)";
     }}
 ////////////SORT//////////////
-const apiurl='https://car-mate-t012.onrender.com/api/v1/rents';
 const [tempList2,setTempList2]=useState([]);
 const [searchApiData, setSearchApiData] = useState([]);
 const [filterVal, setFilterVal] = useState('');
@@ -50,7 +49,8 @@ useEffect(() =>{
     fetchData();
 },[]);
 const fetchData= ()=>{
-    axios.get('https://car-mate-t012.onrender.com/api/v1/rents').then((res)=>{
+    axios.get('https://car-mate-t012.onrender.com/api/v1/rents')
+    .then((res)=>{
       setTempList2(res.data.rent);
       setSearchApiData(res.data.rent);
       console.log(res);
@@ -81,7 +81,7 @@ const onChaneHandle=(e)=>{
   if(e.target.value === ""){
       setTempList2(searchApiData)
   }else{
-      const serarchRessult=searchApiData.filter(item => item.Name.toLowerCase().includes(e.target.value.toLowerCase()) ||  item.Condition.toLowerCase().includes(e.target.value.toLowerCase()))
+      const serarchRessult=searchApiData.filter(item => item.Name.toLowerCase().includes(e.target.value.toLowerCase()))
       setTempList2(serarchRessult);
   }
   setFilterVal(e.target.value)
@@ -125,6 +125,7 @@ const deleteProduct =(Product)=>{
                 </div>
             </div>
         </div>
+        <span className="h5 text-secondary">  (Find Your Perfect Item)</span>
       </h2>
    {/* ///////////////////////////////////// */}
     <ul className="nav mt-5 ms-5 p-0 marketheadnav" id="pills-tab" role="tablist">

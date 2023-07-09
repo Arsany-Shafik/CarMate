@@ -20,7 +20,7 @@ console.log(props);
       <BsShop className=" icon iconmarket" title="Market" />
     </NavLink>
 
-    <NavLink to="/about" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink to="/profile" state={{ data: {props} }} className={({ isActive }) => (isActive ? activeLink : normalLink)}>
          <BsPerson className="icon iconprofile" title="Profile"/>
     </NavLink>
 

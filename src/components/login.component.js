@@ -1,8 +1,7 @@
 import { useNavigate, Link } from 'react-router-dom'
 import  React,  { useState } from 'react';
 import axios from 'axios';
-import Market from './market'
-import App from '../App'
+
 
 
 function Login(){
@@ -200,6 +199,7 @@ const validateInput = e => {
         <div className="carbg2">
           <div className="car">
            <img  className="pic2h" src="/carblue2.png" alt='car'/>
+           <img src='car mate white-01.png' className='logopro'  alt='project logo'></img>
           </div>
         </div>
       </div>

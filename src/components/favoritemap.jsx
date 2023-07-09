@@ -15,7 +15,7 @@ function Favoritemap(props){
     token=props.token.tokrnn;
   userId=props.userId.userId;
   }
-  
+  let tokrnn=token;
 console.log(userId);
     const [favorite,setFavorite]=useState('');
 
@@ -30,6 +30,14 @@ console.log(userId);
        
       }).catch(function (error) {
         if (error.response) {
+          console.log(error.response.data.message);
+          alert(error.response.data.message);
+          navigate('/Market',{
+            state: {
+                token: {tokrnn},
+                userId: {userId}
+            },
+          });
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
     }
@@ -45,7 +53,7 @@ console.log(userId);
           alert('You are not logged in please log in first.');
           navigate('/Market',{
             state: {
-                token: {token},
+                token: {tokrnn},
                 userId: {userId}
             },
           });

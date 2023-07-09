@@ -1,0 +1,147 @@
+.imgbk2{
+    width: 70%;
+    margin:1% 0 0 15%;
+    height: auto;
+    filter:brightness(.05);
+  }
+
+  #bag{
+    position:absolute;
+    margin:7% 15% ;
+  }
+
+  .editIcon{
+    font-size: 2vw;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .edit{
+    position:absolute;
+    margin-left:105%;
+    margin-top: -10%;
+  }
+
+  .drag-areaa{
+    width:19.5vw;
+    height:42vh;
+    margin:0% 7%;
+    border-radius:50%;
+    border: 2px dashed  #e0eae0;
+    background: #1e2025;
+    box-shadow: rgba(149, 157, 165,0.125) 0px 8px 24px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .photoCam.active{
+    color: blue;
+  }
+
+  .drag-areaa .headerr{
+    font-size: 15px;
+font-weight:500;
+color: #8d8f92;
+  }
+
+.drag-areaa img{
+  width: 97.5%;
+  height: 97%;
+  margin:1% 0% 0% 1.1%;
+  object-fit:cover;
+  object-position: top;
+  border: 2px double  #e0eae0;
+  border-radius:50%;  
+}
+/* ///////////////////////// */
+.profData{
+margin: 0% 5%;
+}
+/* Input container */
+.input-container {
+  position:absolute;
+  margin: 20% 0% 0%;
+  width: 24vw;
+  display: inline-flex;
+}
+.t1 {
+  margin:20% 65% ;
+}
+.t2 {
+  margin:50% 0% ;
+}
+.t3 {
+  margin:-10% 200%;
+}
+.t4 {
+  margin:20% 200%;
+}
+.t5 {
+  margin:50% 200%;
+}
+
+/* Input field */
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  color: #ffffff;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
+}
+.if0, .if1{
+  width:40%;
+}
+.if5{
+  width:95%;
+}
+
+/* Input label */
+.input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  color: rgba(204, 204, 204, 0);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Input highlight */
+.input-highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #007bff;
+  transition: all 0.3s ease;
+}
+
+/* Input field:focus styles */
+.input-field:focus + .input-label {
+  top: -20px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.input-field:focus + .input-label + .input-highlight {
+  width: 100%;
+}
+.if0:focus + .input-label + .input-highlight,.if1:focus + .input-label + .input-highlight {
+  width: 45%;
+}
+.editIconT{
+  font-size: 1.5vw;
+  color: #ffffff;
+  cursor: pointer;
+}
+.logopro2{
+  width: 25vw;
+  left: 39vw;
+  top: 0vh;
+  position: absolute;
+}

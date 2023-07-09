@@ -21,7 +21,7 @@ function NavbarC(props){
 
      
 
-    <NavLink state={{ data: {props} }} to="/about" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
+    <NavLink state={{ data: {props} }} to="/profile" className={({ isActive }) => (isActive ? activeLink : normalLink)}>
          <BsPerson className="icon iconprofile" title="Profile"/>
     </NavLink>
 
