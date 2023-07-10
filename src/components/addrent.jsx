@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Navbar from "./navbar";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {BsImages} from 'react-icons/bs'
 import {TbCurrentLocation} from 'react-icons/tb'
 
 function AddRent(){
+  const navigate = useNavigate();
+
   let location = useLocation();
   let token='';
   let userId='';
@@ -18,6 +20,7 @@ function AddRent(){
     userId=location.state.data.userId;
   }
   console.log(token);
+  let tokrnn=token;
 
 
   const [imgCover,setImgCover]=useState();
@@ -335,6 +338,12 @@ useEffect(() =>{
         // that falls out of the range of 2xx
         console.log('Error: ', error.response.data.message);
         alert(error.response.data.message);
+        navigate('/rent',{
+          state: {
+              token: {tokrnn},
+              userId: {userId}
+          },
+        });
   
       }
        else if (error.request) {

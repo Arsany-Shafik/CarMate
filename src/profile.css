@@ -88,6 +88,25 @@ margin: 0% 5%;
 .t5 {
   margin:50% 200%;
 }
+.t6 {
+  margin:85% 250%;
+  font-family: monospace;
+  background-color: #7daaf8;
+  color: #030303;
+  border: none;
+  border-radius: 8px;
+  width: 7vw;
+  height: 6vh;
+  transition: .3s;
+  font-size: 20px;
+  font-weight:bold;
+text-align: center;
+}
+.t6:hover{
+  background-color: #3b82f6;
+  box-shadow: 0 0 0 5px #3b83f65f;
+  color: #fff;
+}
 
 /* Input field */
 .input-field {
@@ -117,6 +136,7 @@ margin: 0% 5%;
   color: rgba(204, 204, 204, 0);
   pointer-events: none;
   transition: all 0.3s ease;
+  padding-bottom: 10%;
 }
 
 /* Input highlight */
@@ -154,21 +174,56 @@ margin: 0% 5%;
   top: 0vh;
   position: absolute;
 }
+
+.khat{
+  position: absolute;
+  color: rgb(14, 92, 236);
+  width: 75vw;
+  height: 10vh;
+  margin: -30% 0 0 0;
+}
+.khat2{
+  position: absolute;
+  color: rgb(14, 92, 236);
+  width: 75vw;
+  height: 10vh;
+  margin: -4% 0 0 0;
+}
 .lists{
   position: absolute;
 }
 
 .list1{
-  /* background-color: #007bff;
-  width: 30vw;
-  height: 20vh; */
+  width: 90vw;
+  margin-left: -5%;
+  margin-bottom: 7%;
 }
 .list2{
-  background-color: aqua;
+  width: 90vw;
+  margin-left: -5%;
+  margin-bottom: 7%;
 }
 .list3{
-  background-color: brown;
+  width: 90vw;
+  margin-left: -5%;
+  margin-bottom: 7%;
 }
 .list4{
-  background-color: chartreuse;
+  width: 90vw;
+  margin-left: -5%;
+  margin-bottom: 7%;
+}
+.list5{
+  width: 90vw;
+  margin-left: -5%;
+  margin-bottom: 7%;
+}
+.showall{
+  color: #6298f5;
+  cursor: pointer;
+  margin-left: 85%;
+}
+.showall:hover{
+  color:#007bff;
+  cursor: pointer;
 }
