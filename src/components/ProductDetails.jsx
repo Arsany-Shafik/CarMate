@@ -302,7 +302,7 @@ const buyProduct =(e)=>{
               console.log(product);
         return(
             <div key={i}>
-              <h5 className="rev1"><img src={product.user.Image} style={{width:'2vw'}} alt="user pic" className="revicon"/> <h6>{product.user.FirstName} {product.user.LastName}</h6></h5>
+              <h5 className="rev1"><img src={product.user?.Image} style={{width:'2vw'}} alt="user pic" className="revicon"/> <h6>{product.user?.FirstName} {product.user?.LastName}</h6></h5>
              <p>{product.Description}<br/>
              <Rating className="pt-1 rating" name="read-only" value={product.Rating} precision={0.1} sx={{'& .MuiRating-iconEmpty':{color:'yellow'}}} size="small" readOnly />
              </p>

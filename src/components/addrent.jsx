@@ -330,6 +330,13 @@ useEffect(() =>{
     'authorization': 'Bearer ' + token
   } }).then((response)=>{
   console.log(response.data);
+  alert("Product added successfully");
+  navigate('/rent',{
+    state: {
+        token: {tokrnn},
+        userId: {userId}
+    },
+  });
   })
 })
     .catch(function (error) {

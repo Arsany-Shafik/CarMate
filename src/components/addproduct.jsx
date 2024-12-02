@@ -335,6 +335,13 @@ useEffect(() =>{
     'authorization': 'Bearer ' + token
   } }).then((response)=>{
   console.log(response.data);
+  alert("Product added successfully");
+  navigate('/Market',{
+    state: {
+        token: {tokrnn},
+        userId: {userId}
+    },
+  });
   })
 })
     .catch(function (error) {
