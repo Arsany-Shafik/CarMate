@@ -4,4 +4,4 @@ REACT.JS
 - Authorization (Admin – user).
 - Upload a car for sale or rent!
 - Demonstrated proficiency in creating a responsive and localized application.
-Note: Projection link : https://car-mate-bz2u.onrender.com/
+- Note: Projection link : https://car-mate-bz2u.onrender.com/
